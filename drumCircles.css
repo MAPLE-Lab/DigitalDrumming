@@ -1,0 +1,177 @@
+#mainDisplay {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    border-radius: 15px;
+    position: absolute;
+    z-index: 1;
+    background-color: lightgrey;
+}
+
+#circleContainer {
+    width: 400px;
+    height: 400px;
+}
+
+#speedSlider {
+    width: 200px;
+    left: 25px;
+}
+#colorToggle {
+    top: 10px;
+    width: 75px;
+    height: 25px;
+    border: 1px solid black;
+    position: relative;
+    background-color: grey;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 25px;
+}
+#pauseButton {
+     top: 10px;
+     width: 75px;
+     height: 25px;
+     border: 1px solid black;
+     position: relative;
+     background-color: grey;
+     cursor: pointer;
+     text-align: center;
+     border-radius: 25px;
+}
+#restart {
+    top: 10px;
+    width: 75px;
+    height: 25px;
+    border: 1px solid black;
+    position: relative;
+    background-color: grey;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 25px;
+}
+
+
+.circle {
+    width: 300px;
+    height: 300px;
+    left: 50px;
+    top: 50px;
+    border: 1px solid darkgrey;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+}
+
+#circleD1 {
+    transform: rotation(0deg);
+}
+
+#circleD2 {
+    width: 150px;
+    height: 150px;
+    left: 126px;
+    top: 126px;
+    border: 1px solid darkgrey;
+    position: absolute;
+}
+
+.circleConts1 {
+    width: 81%;
+    height: 81%;
+    left: 10%;
+    top: 10%;
+    position: absolute;
+}
+
+.circleConts2 {
+    width: 90%;
+    height: 90%;
+    left: 4%;
+    top: 4%;
+    position: absolute;
+}
+
+.inCircle {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 2;
+    position: absolute;
+}
+
+.display {
+    left: 400px;
+    width: 75px;
+    height: 50px;
+    border: 1px solid black;
+    position: relative;
+}
+
+#d1 {
+    top: 5px;
+    left: 5%;
+    position: relative;
+}
+
+#d2 {
+    top: 5px;
+    left: 40%;
+    position: relative;
+}
+p {
+    color: white;
+    position: relative;
+    text-align: center;
+    vertical-align: center;
+    bottom: 7px;
+}
+.empty {
+    display: none;
+    background-color: lightgrey;
+}
+.pos1 {
+    transform: rotate(45deg);
+}
+
+.pos2 {
+    transform: rotate(75deg);
+}
+
+.pos3 {
+    transform: rotate(105deg);
+}
+.emptypos1 {
+    transform: rotate(135deg);
+}
+.pos4 {
+    transform: rotate(165deg);
+}
+.emptypos2 {
+    transform: rotate(195deg);
+}
+.pos5 {
+    transform: rotate(225deg);
+}
+
+.pos6 {
+    transform: rotate(255deg);
+}
+
+.pos7 {
+    transform: rotate(285deg);
+}
+.emptypos3 {
+    transform: rotate(315deg);
+}
+.pos8 {
+    transform: rotate(345deg);
+}
+.emptypos4 {
+    transform: rotate(375deg);
+}
+.n1 {
+    background-color: black;
+}

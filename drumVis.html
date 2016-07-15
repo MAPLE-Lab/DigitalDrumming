@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drumming Visualizer</title>
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./lib/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="./lib/jquery-ui.theme.css">
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="./drumCircles.css">
+
+    <!--Javascript-->
+    <script type="text/javascript" src="./theoreticalData.js"></script>
+    <script type="text/javascript" src="./drumCode.js"></script>
+
+</head>
+<body>
+<div id="mainDisplay">
+    <div id="circleContainer">
+        <div id="circleD1" class="circle">
+            <div class="circleConts1 emptypos1">
+                <div class="inCircle c1 empty">
+                </div>
+            </div>
+            <div class="circleConts1 emptypos2">
+                <div class="inCircle c1 empty">
+                </div>
+            </div>
+            <div class="circleConts1 emptypos3">
+                <div class="inCircle c1 empty">
+                </div>
+            </div>
+            <div class="circleConts1 emptypos4">
+                <div class="inCircle c1 empty">
+                </div>
+            </div>
+
+            <div class="circleConts1 pos1">
+                <div class="inCircle n1 c1">
+                </div>
+            </div>
+            <div class="circleConts1 pos2">
+                <div class="inCircle n2 c1">
+                </div>
+            </div>
+            <div class="circleConts1 pos3">
+                <div class="inCircle n3 c1">
+                </div>
+            </div>
+            <div class="circleConts1 pos4">
+                <div class="inCircle n4 c1">
+                </div>
+            </div>
+            <div class="circleConts1 pos5">
+                <div class="inCircle n5 c1">
+                </div>
+            </div>
+            <div class="circleConts1 pos6">
+                <div class="inCircle n6 c1">
+                </div>
+            </div>
+            <div class="circleConts1 pos7">
+                <div class="inCircle n7 c1">
+                </div>
+            </div>
+            <div class="circleConts1 pos8">
+                <div class="inCircle n8 c1">
+                </div>
+            </div>
+        </div>
+        <div id="circleD2" class="circle">
+            <div class="circleConts2 emptypos1">
+                <div class="inCircle c2 empty">
+                </div>
+            </div>
+            <div class="circleConts2 emptypos2">
+                <div class="inCircle c2 empty">
+                </div>
+            </div>
+            <div class="circleConts2 emptypos3">
+                <div class="inCircle c2 empty">
+                </div>
+            </div>
+            <div class="circleConts2 emptypos4">
+                <div class="inCircle c2 empty">
+                </div>
+            </div>
+            <div class="circleConts2 pos1">
+                <div class="inCircle n1 c2"></div>
+            </div>
+            <div class="circleConts2 pos2">
+                <div class="inCircle n2 c2"></div>
+            </div>
+            <div class="circleConts2 pos3">
+                <div class="inCircle n3 c2"></div>
+            </div>
+            <div class="circleConts2 pos4">
+                <div class="inCircle n4 c2"></div>
+            </div>
+            <div class="circleConts2 pos5">
+                <div class="inCircle n5 c2"></div>
+            </div>
+            <div class="circleConts2 pos6">
+                <div class="inCircle n6 c2"></div>
+            </div>
+            <div class="circleConts2 pos7">
+                <div class="inCircle n7 c2"></div>
+            </div>
+            <div class="circleConts2 pos8">
+                <div class="inCircle n8 c2"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="speedSlider"></div>
+    <div id="colorToggle">Colour</div>
+    <div id="pauseButton">Pause</div>
+    <div class="display">
+        <div id="d1">
+            <div class="inCircle n1 c1">
+                <p>
+                    D1
+                </p>
+            </div>
+
+        </div>
+        <div id="d2">
+            <div class="inCircle n1 c2">
+                <p>
+                    D2
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
