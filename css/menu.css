@@ -1,11 +1,12 @@
 #mainDisplay {
     width: 500px;
-    height: 500px;
+    height: 600px;
     border: 1px solid black;
     border-radius: 15px;
-    position: absolute;
+    position: relative;
     z-index: 1;
     background-color: lightgrey;
+    left: 25%;
 }
 
 #circleContainer {
