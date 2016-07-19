@@ -30,7 +30,16 @@ var menuControl = function () {
             runDrumLoop();
         }
     });
-
+    $('#dataToggle').click(function() {
+        halt = true;
+        if (drumData == expData) {
+            drumData = theoData;
+            $(this).text("Theoretical");
+        } else {
+            drumData = expData;
+            $(this).text("Experimental");
+        }
+    });
     $( "#speedSlider" ).slider({
         min: 1,
         max: 10,
