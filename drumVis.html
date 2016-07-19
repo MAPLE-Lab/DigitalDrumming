@@ -8,12 +8,24 @@
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="./lib/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="./lib/jquery-ui.theme.css">
-    <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="./drumCircles.css">
 
+    <!-- timbre.js -->
+    <script src="http://mohayonao.github.io/timbre.js/timbre.js" type="text/javascript"></script>
+    <script src="lib/timbre/audio-jsonp.js"></script>
+    <script src="lib/timbre/jsmad.js"></script>
+    <script src="./mp3_decode.js"></script>
+    <script src="./soundfont.js"></script>
+
+
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="css/drumCircles.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
     <!--Javascript-->
-    <script type="text/javascript" src="./theoreticalData.js"></script>
-    <script type="text/javascript" src="./drumCode.js"></script>
+    <script type="text/javascript" src="Data/theoreticalData.js"></script>
+    <script type="text/javascript" src="Data/experimentalData.js"></script>
+    <script type="text/javascript" src="js/properties.js"></script>
+    <script type="text/javascript" src="js/drumCode.js"></script>
+    <script type="text/javascript" src="js/controls.js"></script>
 
 </head>
 <body>
@@ -115,8 +127,9 @@
     </div>
 
     <div id="speedSlider"></div>
-    <div id="colorToggle">Colour</div>
-    <div id="pauseButton">Pause</div>
+    <div id="colorToggle"class="button">Colour</div>
+    <div id="playButton" class="button">play</div>
+    <div id="pauseButton" class="button">Pause</div>
     <div class="display">
         <div id="d1">
             <div class="inCircle n1 c1">
