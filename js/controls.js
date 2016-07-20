@@ -51,7 +51,16 @@ var menuControl = function () {
             $(this).text("Experimental");
         }
     });
-
+    $('#dataToggle').click(function() {
+        halt = true;
+        if (drumData == expData) {
+            drumData = theoData;
+            $(this).text("Theoretical");
+        } else {
+            drumData = expData;
+            $(this).text("Experimental");
+        }
+    });
     $( "#speedSlider" ).slider({
         min: 1,
         max: 10,
