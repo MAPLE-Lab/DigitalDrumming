@@ -10,36 +10,48 @@ var menuControl = function () {
             colorOption = true;
         }
     });
+
     $('#pauseButton').click(function() {
         if (pause == true) {
             pause = false;
+            $(this).text("Pause");
+            $('.c1').removeClass('holdD1');
+            $('.c2').removeClass('holdD2');
+
         } else {
             pause = true;
+            $('.c1.n' + currentND1[0]).addClass('holdD1');
+            $('.c2.n' + currentND2[0]).addClass('holdD2');
+            $(this).text("Play");
         }
         runDrumLoop();
     });
+
     $('#playButton').click(function() {
         if (halt == false) {
             halt = true;
+            $(this).text("Play");
         } else {
             halt = false;
-            counter = 0;
-            currentT = 0;
-            countD1 = 0;
-            countD2 = 0;
+            resetDrumLoop();
             runDrumLoop();
+            $(this).text("Reset");
         }
     });
+
     $('#dataToggle').click(function() {
         halt = true;
         if (drumData == expData) {
             drumData = theoData;
+            resetDrumLoop();
             $(this).text("Theoretical");
         } else {
             drumData = expData;
+            resetDrumLoop();
             $(this).text("Experimental");
         }
     });
+
     $( "#speedSlider" ).slider({
         min: 1,
         max: 10,

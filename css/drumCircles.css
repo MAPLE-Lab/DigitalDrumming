@@ -47,6 +47,14 @@
     z-index: 2;
     position: absolute;
 }
+.holdD2 {
+    background-color: green !important;
+}
+
+.holdD1 {
+    background-color: blue !important;
+}
+
 
 .display {
     left: 400px;

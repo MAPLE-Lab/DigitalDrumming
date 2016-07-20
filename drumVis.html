@@ -15,113 +15,22 @@
     <script src="https://maplelab.net/tools/DigitalDrumming/lib/timbre/jsmad.js"></script>
 
     <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="https://maplelab.net/tools/DigitalDrumming/css/drumCircles.css">
-    <link rel="stylesheet" type="text/css" href="https://maplelab.net/tools/DigitalDrumming/css/menu.css">
+    <link rel="stylesheet" type="text/css" href="./css/drumCircles.css">
+    <link rel="stylesheet" type="text/css" href="./css/menu.css">
     <!--Javascript-->
-    <script type="text/javascript" src="https://maplelab.net/tools/DigitalDrumming/Data/theoreticalData.js"></script>
-    <script type="text/javascript" src="https://maplelab.net/tools/DigitalDrumming/Data/experimentalData.js"></script>
-    <script type="text/javascript" src="https://maplelab.net/tools/DigitalDrumming/js/properties.js"></script>
-    <script type="text/javascript" src="https://maplelab.net/tools/DigitalDrumming/js/drumCode.js"></script>
-    <script type="text/javascript" src="js/controls.js"></script>
-
+    <script type="text/javascript" src="./Data/theoreticalData.js"></script>
+    <script type="text/javascript" src="./Data/experimentalData.js"></script>
+    <script type="text/javascript" src="./js/properties.js"></script>
+    <script type="text/javascript" src="./js/createStructure.js"></script>
+    <script type="text/javascript" src="./js/controls.js"></script>
+    <script type="text/javascript" src="./js/drumCode.js"></script>
 </head>
 <body>
 <div id="mainDisplay">
     <div id="circleContainer">
-        <div id="circleD1" class="circle">
-            <div class="circleConts1 emptypos1">
-                <div class="inCircle c1 empty">
-                </div>
-            </div>
-            <div class="circleConts1 emptypos2">
-                <div class="inCircle c1 empty">
-                </div>
-            </div>
-            <div class="circleConts1 emptypos3">
-                <div class="inCircle c1 empty">
-                </div>
-            </div>
-            <div class="circleConts1 emptypos4">
-                <div class="inCircle c1 empty">
-                </div>
-            </div>
-
-            <div class="circleConts1 pos1">
-                <div class="inCircle n1 c1">
-                </div>
-            </div>
-            <div class="circleConts1 pos2">
-                <div class="inCircle n2 c1">
-                </div>
-            </div>
-            <div class="circleConts1 pos3">
-                <div class="inCircle n3 c1">
-                </div>
-            </div>
-            <div class="circleConts1 pos4">
-                <div class="inCircle n4 c1">
-                </div>
-            </div>
-            <div class="circleConts1 pos5">
-                <div class="inCircle n5 c1">
-                </div>
-            </div>
-            <div class="circleConts1 pos6">
-                <div class="inCircle n6 c1">
-                </div>
-            </div>
-            <div class="circleConts1 pos7">
-                <div class="inCircle n7 c1">
-                </div>
-            </div>
-            <div class="circleConts1 pos8">
-                <div class="inCircle n8 c1">
-                </div>
-            </div>
-        </div>
-        <div id="circleD2" class="circle">
-            <div class="circleConts2 emptypos1">
-                <div class="inCircle c2 empty">
-                </div>
-            </div>
-            <div class="circleConts2 emptypos2">
-                <div class="inCircle c2 empty">
-                </div>
-            </div>
-            <div class="circleConts2 emptypos3">
-                <div class="inCircle c2 empty">
-                </div>
-            </div>
-            <div class="circleConts2 emptypos4">
-                <div class="inCircle c2 empty">
-                </div>
-            </div>
-            <div class="circleConts2 pos1">
-                <div class="inCircle n1 c2"></div>
-            </div>
-            <div class="circleConts2 pos2">
-                <div class="inCircle n2 c2"></div>
-            </div>
-            <div class="circleConts2 pos3">
-                <div class="inCircle n3 c2"></div>
-            </div>
-            <div class="circleConts2 pos4">
-                <div class="inCircle n4 c2"></div>
-            </div>
-            <div class="circleConts2 pos5">
-                <div class="inCircle n5 c2"></div>
-            </div>
-            <div class="circleConts2 pos6">
-                <div class="inCircle n6 c2"></div>
-            </div>
-            <div class="circleConts2 pos7">
-                <div class="inCircle n7 c2"></div>
-            </div>
-            <div class="circleConts2 pos8">
-                <div class="inCircle n8 c2"></div>
-            </div>
-        </div>
     </div>
+
+    <div id="cycleDisplay">1</div>
 
     <div id="speedSlider"></div>
     <div id="colorToggle"class="button">Colour</div>
