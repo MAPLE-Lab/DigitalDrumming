@@ -39,31 +39,23 @@ var menuControl = function () {
         }
     });
 
+
     $('#dataToggle').click(function() {
         halt = true;
+
         if (drumData == expData) {
             drumData = theoData;
-            resetDrumLoop();
-            $(this).text("Theoretical");
+            $('#dataToggle').text("Theoretical");
         } else {
             drumData = expData;
-            resetDrumLoop();
-            $(this).text("Experimental");
+            $('#dataToggle').text("Experimental");
         }
+        $('#playButton').text("Play");
     });
-    $('#dataToggle').click(function() {
-        halt = true;
-        if (drumData == expData) {
-            drumData = theoData;
-            $(this).text("Theoretical");
-        } else {
-            drumData = expData;
-            $(this).text("Experimental");
-        }
-    });
+    
     $( "#speedSlider" ).slider({
         min: 1,
-        max: 10,
+        max: 15,
         step: 0.01,
         value: 1,
         slide: function(event, ui) {
