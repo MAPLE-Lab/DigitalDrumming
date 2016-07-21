@@ -73,3 +73,4 @@
     var currentVol = 1;
     var currentPitch = 200;
     var currentCol = "green";
+    var adjustN = 1;
