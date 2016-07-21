@@ -30,10 +30,10 @@ var menuControl = function () {
     $('#playButton').click(function() {
         if (halt == false) {
             halt = true;
+            resetDrumLoop();
             $(this).text("Play");
         } else {
             halt = false;
-            resetDrumLoop();
             runDrumLoop();
             $(this).text("Reset");
         }
@@ -42,19 +42,20 @@ var menuControl = function () {
 
     $('#dataToggle').click(function() {
         halt = true;
-
         if (drumData == expData) {
             drumData = theoData;
+            resetDrumLoop();
             $('#dataToggle').text("Theoretical");
         } else {
             drumData = expData;
+            resetDrumLoop();
             $('#dataToggle').text("Experimental");
         }
         $('#playButton').text("Play");
     });
-    
+
     $( "#speedSlider" ).slider({
-        min: 1,
+        min: -15,
         max: 15,
         step: 0.01,
         value: 1,
@@ -63,6 +64,6 @@ var menuControl = function () {
         }
     });
     
-}
+};
 
 $(document).ready(menuControl);
