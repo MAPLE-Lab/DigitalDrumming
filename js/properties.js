@@ -7,8 +7,9 @@
     var advDisplay = true; // Display advanced circle plot
     var colorOption = true; // Show colours as notes are played
     var pause = false; // Pause playback
-    var halt = true; // Stop playback (can only be reset)
+    var halt = false; // Stop playback (can only be reset)
     var dataType = "experimental"; // Choose between data sets to load
+    var playing = "no";
 
 ////////////////
 // Load Data //

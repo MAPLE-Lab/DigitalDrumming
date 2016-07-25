@@ -47,7 +47,6 @@ function runDrumLoop() {
 
         // Pause or Stop loop checks //
         if (pause == true) return;
-        if (halt == true) return;
 
         // Set direction of loop //
         if (direction == "fwd") {

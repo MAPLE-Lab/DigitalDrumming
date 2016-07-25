@@ -14,32 +14,52 @@
 }
 
 #speedSlider {
-    width: 200px;
+    width: 350px;
     left: 25px;
 }
 #colorToggle {
-    top: 10px;
-    width: 75px;
-    height: 25px;
-    border: 1px solid black;
+    width: 15px;
+    height: 30px;
+    border-radius: 5px;
+    background: gray;
     position: relative;
-    background-color: grey;
+    z-index: 10;
     cursor: pointer;
-    text-align: center;
-    border-radius: 25px;
+    box-shadow: 1px 1px 5px #000;
+    top: 37px;
+    left: 20px;
+}
+
+.colorToggleDot {
+    background: #d3d3d3;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    left: 2px;
+    top: 3px;
+    position: absolute;
+    border: 1px solid #000;
+}
+#menuBttnContainer {
+    width: 200px;
+    left: 100px;
+    position: relative;
 }
 .button {
     top: 10px;
-    width: 75px;
+    width: 40px;
     height: 25px;
     border: 1px solid black;
     position: relative;
     background-color: grey;
     cursor: pointer;
     text-align: center;
-    border-radius: 25px;
+    float: left;
 }
-
+#dataToggle {
+    left: 175px;
+    position: relative;
+}
 #playButton {
     background-color: #00efff;
 }
@@ -51,3 +71,10 @@
     font-size: 30px;
 }
 
+.buttonClicked {
+    box-shadow: inset 0 0 7px 0px red;
+}
+
+.hovered {
+    box-shadow: 0 0 7px 0px black;
+}

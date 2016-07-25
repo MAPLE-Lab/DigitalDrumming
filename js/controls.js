@@ -6,42 +6,25 @@ var menuControl = function () {
     $('#colorToggle').click(function() {
         if (colorOption == true) {
             colorOption = false;
+            $('.colorToggleDot').animate({
+                top: "15px"
+            }, {
+                queue: false
+            });
         } else {
             colorOption = true;
+            $('.colorToggleDot').animate({
+                top: "3px"
+            }, {
+                queue: false
+            });
         }
     });
-
-    $('#pauseButton').click(function() {
-        if (pause == true) {
-            pause = false;
-            $(this).text("Pause");
-            $('.c1').removeClass('holdD1');
-            $('.c2').removeClass('holdD2');
-
-        } else {
-            pause = true;
-            $('.c1.n' + currentND1[0]).addClass('holdD1');
-            $('.c2.n' + currentND2[0]).addClass('holdD2');
-            $(this).text("Play");
-        }
-        runDrumLoop();
-    });
-
-    $('#playButton').click(function() {
-        if (halt == false) {
-            halt = true;
-            resetDrumLoop();
-            $(this).text("Play");
-        } else {
-            halt = false;
-            runDrumLoop();
-            $(this).text("Reset");
-        }
-    });
-
 
     $('#dataToggle').click(function() {
-        halt = true;
+        playing = "no";
+        pause = true;
+        $('.button').removeClass('buttonClicked');
         if (drumData == expData) {
             drumData = theoData;
             resetDrumLoop();
@@ -52,6 +35,59 @@ var menuControl = function () {
             $('#dataToggle').text("Experimental");
         }
         $('#playButton').text("Play");
+    });
+    $('#dataToggle').hover(function() {
+        $(this).toggleClass('hovered');
+    });
+
+    $('#resetBttn').click(function() {
+        $('.button').removeClass('buttonClicked');
+        $(this).addClass('buttonClicked');
+        playing = "no";
+        pause = true;
+        resetDrumLoop();
+    });
+    $('#resetBttn').hover(function() {
+        $(this).toggleClass('hovered');
+    });
+    $('#playBttn').click(function() {
+        $('.button').removeClass('buttonClicked');
+        $(this).addClass('buttonClicked');
+        if (playing == "yes") {
+            direction = "fwd";
+        } else if (playing == "no") {
+            playing = "yes";
+            pause = false;
+            direction = "fwd";
+            runDrumLoop();
+        }
+    });
+    $('#playBttn').hover(function() {
+        $(this).toggleClass('hovered');
+    });
+    $('#revBttn').click(function() {
+        $('.button').removeClass('buttonClicked');
+        $(this).addClass('buttonClicked');
+        if (playing == "yes") {
+            direction = "rev";
+        } else if (playing == "no") {
+            playing = "yes";
+            pause = false;
+            direction = "rev";
+            runDrumLoop();
+        }
+    });
+    $('#revBttn').hover(function() {
+        $(this).toggleClass('hovered');
+    });
+    $('#pauseBttn').click(function() {
+        $('.button').removeClass('buttonClicked');
+        $(this).addClass('buttonClicked');
+        playing = "no";
+        pause = true;
+    });
+    $('#pauseBttn').hover(function() {
+        $(this).toggleClass('hovered');
     });
 
     $( "#speedSlider" ).slider({
