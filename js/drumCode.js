@@ -49,15 +49,6 @@ function runDrumLoop() {
         if (pause == true) return;
         if (halt == true) return;
 
-        // Check Direction from time multiplier //
-        if (timeMult > 0) { // Loop to set playback to be forward or reversed based on slider
-            direction = "fwd"; // Sets playback to be forward ("fwd")
-        } else if (timeMult < 0) {
-            direction = "rev"; // Sets playback to be reversed ("rev")
-        } else {
-            direction = "fwd"; // Defaults to forward if something goes wrong
-        }
-
         // Set direction of loop //
         if (direction == "fwd") {
             if (0 >= counter++ >= maxLoops) return;
