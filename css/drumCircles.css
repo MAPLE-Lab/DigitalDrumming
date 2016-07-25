@@ -97,33 +97,33 @@ p {
 .pos3 {
     transform: rotate(105deg);
 }
-.emptypos1 {
+.pos4{
     transform: rotate(135deg);
 }
-.pos4 {
+.pos5 {
     transform: rotate(165deg);
 }
-.emptypos2 {
-    transform: rotate(195deg);
-}
-.pos5 {
-    transform: rotate(225deg);
-}
-
 .pos6 {
-    transform: rotate(255deg);
+    transform: rotate(195deg);
 }
 
 .pos7 {
+    transform: rotate(225deg);
+}
+
+.pos8 {
+    transform: rotate(255deg);
+}
+.pos9 {
     transform: rotate(285deg);
 }
-.emptypos3 {
+.pos10 {
     transform: rotate(315deg);
 }
-.pos8 {
+.pos11 {
     transform: rotate(345deg);
 }
-.emptypos4 {
+.pos12 {
     transform: rotate(375deg);
 }
 .n1 {

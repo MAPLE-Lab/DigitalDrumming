@@ -55,8 +55,8 @@ var menuControl = function () {
     });
 
     $( "#speedSlider" ).slider({
-        min: -15,
-        max: 15,
+        min: 0.5,
+        max: 10,
         step: 0.01,
         value: 1,
         slide: function(event, ui) {

@@ -21,6 +21,16 @@
         var drumData = expData; // Defaults to experimental
     }
     var maxLoops = drumData.length; // Calculate length of the data
+    var notePos = [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        11,
+    ];
 
 ///////////////
 // Trackers //
@@ -28,6 +38,7 @@
     var counter = 0; // Main counter for the loop
     var currentT = 0; // Current time (in ms) to wait until next loop (is loaded dynamically)
 
+    // Unused
     var countD1 = 0; // Counter for how many times Drummer 1 has been updated
     var countD2 = 0; // Counter for how many times Drummer 2 has been updated
 

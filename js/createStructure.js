@@ -10,8 +10,8 @@ $(document).ready(function() {
     );
     // Create inner note circles
     for (i=1; i<=8; i++) {
-        var num = i;
-        var n = num.toString();
+        var posNum = notePos[i-1];
+        var n = posNum.toString();
         $('#circleD1').append(
             '<div class="circleConts1 pos' + n + '">' +
             '<div class="inCircle c1 n' + n + '"></div>' +

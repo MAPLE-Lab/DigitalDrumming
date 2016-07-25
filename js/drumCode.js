@@ -1,103 +1,110 @@
 /**
  * Created by kyle on 2016-07-15.
  */
+
+// Main function to adjust circle display
+function modifyDisplay(num,cND,cVol,cPitch,cCol,tMult) {
+    // Play audio
+    T("perc", {r:200}, T("sin", {freq:cPitch, mul:cVol})).on("ended", function() {
+        this.pause();
+    }).bang().play();
+
+    // Animate color
+    if (colorOption == true) {
+        $('.c'+num+'.n' + cND).animate({
+            backgroundColor: cCol
+        }, 150 * 1 / Math.abs(tMult));
+        if (currentN[0] == 1) {
+            $('.c'+num+'.n' + cND).animate({
+                backgroundColor: "black"
+            }, 200 * 1 / Math.abs(tMult));
+        } else {
+            $('.c'+num+'.n' + cND).animate({
+                backgroundColor: "white"
+            }, 200 * 1 / Math.abs(tMult));
+        }
+    }
+
+    // Rotate Position
+    $('.circleConts'+num+'.pos'+cND).css("transform", "rotate(" + (15+30*cND+(diffT / 213) * -(60)) + "deg)");
+}
+
+// Resets display
+function resetDrumLoop() {
+    $('#cycleDisplay').text('1');
+    counter = 0;
+    currentT = 0;
+    for (i=1; i<=12; i++) {
+        $('.pos'+i).css("transform", "rotate(" + (15+30*i) + "deg)");
+    }
+}
+
+
+
 function runDrumLoop() {
     (function next() {
-        if (counter++ >= maxLoops) return;
+        // Main loop to go through data
+
+        // Pause or Stop loop checks //
         if (pause == true) return;
         if (halt == true) return;
-        currentT = drumData[counter][0]; //time
-        diffT = (drumData[counter][1]);
-        currentP = drumData[counter][2]; //performer
-        currentN = drumData[counter][3]; //note
-        adjustN = currentN[0];
 
-        if (currentN[0] == 4) {
-            adjustN = 5;
-        }
-        if (currentN[0] == 5) {
-            adjustN = 7;
-        }
-        if (currentN[0] == 6) {
-            adjustN = 8;
-        }
-        if (currentN[0] == 7) {
-            adjustN = 9;
-        }
-        if (currentN[0] == 8) {
-            adjustN = 11;
+        // Check Direction from time multiplier //
+        if (timeMult > 0) { // Loop to set playback to be forward or reversed based on slider
+            direction = "fwd"; // Sets playback to be forward ("fwd")
+        } else if (timeMult < 0) {
+            direction = "rev"; // Sets playback to be reversed ("rev")
+        } else {
+            direction = "fwd"; // Defaults to forward if something goes wrong
         }
 
+        // Set direction of loop //
+        if (direction == "fwd") {
+            if (0 >= counter++ >= maxLoops) return;
+        }
+        else if (direction == "rev") {
+            if (0 >= counter-- >= maxLoops) return;
+        } else {
+            if (0 >= counter++ >= maxLoops) return;
+        }
 
-        if (currentP == "D1") {
-            currentND1 = currentN;
-        }
-        if (currentP == "D2") {
-            currentND2 = currentN;
-        }
+        // Set values for this loop //
+        currentT = drumData[counter][0]; // time until next loop iteration
+        diffT = (drumData[counter][1]); // difference time to rotate with (against theoretical)
+        currentP = drumData[counter][2]; // Performer for this loop
+        currentN = drumData[counter][3]; // Note number for this loop
         currentCycle = drumData[counter][4];
         currentVol = drumVol[currentN[0]-1];
+        currentPitch = drumPitch[currentN[0]-1];
+        adjustN = notePos[currentN[0]-1];
+        if (currentP == "D1") {
+            currentND1 = adjustN;
+        }
+        if (currentP == "D2") {
+            currentND2 = adjustN;
+        }
+
+        // Actual loop with pause //
         setTimeout(function () {
+            // Change display to show the current cycle number //
             if (currentN[0] == 1) {
                 $('#cycleDisplay').text(currentCycle);
             }
-            if (currentP == "D1") {
-                T("perc", {r:200}, T("sin", {freq:220, mul:currentVol})).on("ended", function() {
-                    this.pause();
-                }).bang().play();
-                var currentCol = "blue";
-                if (colorOption == true) {
-                    $('.c1.n' + currentND1[0]).animate({
-                        backgroundColor: currentCol
-                    }, 150 * 1 / timeMult);
-                    if (currentN[0] == 1) {
-                        $('.c1.n' + currentND1[0]).animate({
-                            backgroundColor: "black"
-                        }, 300 * 1 / timeMult);
-                    } else {
-                        $('.c1.n' + currentND1[0]).animate({
-                            backgroundColor: "white"
-                        }, 300 * 1 / timeMult);
-                    }
-                }
 
-                    $('.circleConts1.pos'+currentND1[0]).css("transform", "rotate(" + (15+30*adjustN+(diffT / 213) * -(60)) + "deg)");
-                countD1 = countD1 + 1;
+            // Loop for Drummer 1 //
+            if (currentP == "D1") {
+                modifyDisplay(1,currentND1,currentVol,currentPitch,"blue",timeMult);
             }
+
+            // Loop for Drummer 2 //
             if (currentP == "D2") {
-                currentND2 = currentN;
-                T("perc", {r:200}, T("sin", {freq:220, mul:currentVol})).on("ended", function() {
-                    this.pause();
-                }).bang().play();
-                var currentCol = "green";
-                if (colorOption == true) {
-                    $('.c2.n' + currentND2[0]).animate({
-                        backgroundColor: currentCol
-                    }, 150 * 1 / timeMult);
-                    if (currentN[0] == 1) {
-                        $('.c2.n' + currentND2[0]).animate({
-                            backgroundColor: "black"
-                        }, 200 * 1 / timeMult);
-                    } else {
-                        $('.c2.n' + currentND2[0]).animate({
-                            backgroundColor: "white"
-                        }, 200 * 1 / timeMult);
-                    }
-                    countD2 = countD2 + 1;
-                }
-                $('.circleConts2.pos'+currentND2[0]).css("transform", "rotate(" + (15+30*adjustN+(diffT / 213) * -(60)) + "deg)");
+                modifyDisplay(2,currentND2,currentVol,currentPitch,"green",timeMult);
             }
+
+
+            //
             next();
         }, currentT * 1 / timeMult);
     })();
 }
 
-function resetDrumLoop() {
-    $('#cycleDisplay').text('1');
-    $('#circleD1').css("transform", "rotate(0deg)");
-    $('#circleD2').css("transform", "rotate(0deg)");
-    counter = 0;
-    currentT = 0;
-    countD1 = 0;
-    countD2 = 0;
-}
