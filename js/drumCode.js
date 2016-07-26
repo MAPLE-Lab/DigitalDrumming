@@ -26,7 +26,7 @@ function modifyDisplay(num,cND,cVol,cPitch,cCol,tMult) {
     }
 
     // Rotate Position
-    $('.circleConts'+num+'.pos'+cND).css("transform", "rotate(" + (15+30*cND+(diffT / 213) * -(60)) + "deg)");
+    $('.circleConts'+num+'.pos'+cND).css("transform", "rotate(" + (360*diffT) + "deg)");
 }
 
 // Resets display
@@ -35,7 +35,7 @@ function resetDrumLoop() {
     counter = 0;
     currentT = 0;
     for (i=1; i<=12; i++) {
-        $('.pos'+i).css("transform", "rotate(" + (15+30*i) + "deg)");
+        $('.pos'+i).css("transform", "rotate(" + (30*(i-1)) + "deg)");
     }
 }
 
@@ -59,7 +59,12 @@ function runDrumLoop() {
         }
 
         // Set values for this loop //
-        currentT = drumData[counter][0]; // time until next loop iteration
+        if (counter - 1 < 0) {
+            counterdiff = 0;
+        } else {
+            counterdiff = counter - 1;
+        }
+        currentT = Math.abs(drumData[counter][0] - drumData[counterdiff][0]); // time until next loop iteration
         diffT = (drumData[counter][1]); // difference time to rotate with (against theoretical)
         currentP = drumData[counter][2]; // Performer for this loop
         currentN = drumData[counter][3]; // Note number for this loop

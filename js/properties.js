@@ -37,6 +37,7 @@
 // Trackers //
 /////////////
     var counter = 0; // Main counter for the loop
+    var counterdiff = 0;
     var currentT = 0; // Current time (in ms) to wait until next loop (is loaded dynamically)
 
     // Unused
