@@ -89,3 +89,4 @@
     var currentCol = "green";
     var adjustN = 1;
     var startCol = "lightred";
+    var numYTicks = 8;

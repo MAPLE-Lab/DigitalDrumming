@@ -27,7 +27,6 @@ $(document).ready(function() {
 
     }
 
-
     // Create inner note circles and gridlines
     for (i=1; i<=8; i++) {
         var posNum = notePos[i-1];
@@ -43,6 +42,23 @@ $(document).ready(function() {
                     '<div class="circleTick tickD2"></div>' +
                 '</div>'
         );
+    }
+
+    // Create Graph Layout
+    $('#graphDisplay').append(
+        '<div id="axisContainer">' +
+            '<div id="xAxis" class="axis"></div>' +
+            '<div id="yAxis" class="axis"></div>' +
+        '</div>'
+    );
+
+    // Create Axis Ticks
+    for (i=1; i<=numYTicks; i++) {
+        spaceTicks = 345 / (numYTicks - 1);
+        $('#yAxis').append(
+            '<div class="yAxisTick tickPosY' + i + '"></div>'
+        );
+        $('.tickPosY' + i).css("bottom", (5 + (spaceTicks * (i-1))) + "px");
     }
 
 });
