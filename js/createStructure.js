@@ -49,6 +49,10 @@ $(document).ready(function() {
         '<div id="axisContainer">' +
             '<div id="xAxis" class="axis"></div>' +
             '<div id="yAxis" class="axis"></div>' +
+            '<div id="dataContainer">' +
+                '<div class="D1Data"></div>' +
+                '<div class="D2Data"></div>' +
+            '</div>' +
         '</div>'
     );
 
@@ -61,4 +65,14 @@ $(document).ready(function() {
         $('.tickPosY' + i).css("bottom", (5 + (spaceTicks * (i-1))) + "px");
     }
 
+    // X Axis
+    for (i=1; i<=16; i++) {
+        $('#xAxis').append(
+            '<div class="xAxisTick tickPosX' + i + '"></div>'
+        );
+        $('.tickPosX'+i).css("left",(50 + (20*(i-1))) + "px");
+        if (i%2 == 0) {
+            $('.tickPosX'+i).css("height", "2px");
+        } else {}
+    }
 });

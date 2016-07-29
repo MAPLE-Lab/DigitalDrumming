@@ -4,7 +4,6 @@
     left: 400px;
     top: 65px;
     position: absolute;
-    border: 1px solid black
 }
 #axisContainer {
     width: 100%;
@@ -29,3 +28,27 @@
     bottom: 5px;
     left:-7px;
 }
+.xAxisTick {
+    height: 6px;
+    position: absolute;
+    border:1px solid black;
+}
+#dataContainer {
+    left: 84px;
+    position: absolute;
+    bottom: 39px;
+}
+.datum {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+
+    position: absolute;
+}
+.datumD2 {
+    border: 1px solid green;
+}
+.datumD1 {
+    border: 1px solid blue;
+}
+

@@ -8,7 +8,7 @@
     var colorOption = true; // Show colours as notes are played
     var pause = false; // Pause playback
     var halt = false; // Stop playback (can only be reset)
-    var dataType = "experimental"; // Choose between data sets to load
+    var dataType = "theoretical"; // Choose between data sets to load
     var playing = "no";
     var gridOption = true;
 
@@ -90,3 +90,6 @@
     var adjustN = 1;
     var startCol = "lightred";
     var numYTicks = 8;
+    var ySpace = 345 / 67;
+    var datumID = "default";
+    var datumIDClass = '.default';

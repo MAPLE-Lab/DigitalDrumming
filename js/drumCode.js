@@ -40,6 +40,23 @@ function resetDrumLoop() {
 }
 
 
+function plotDatum(num,cCycle,cND,cPerf,dType,diff) {
+    datumID = "datum"+cCycle+"_"+cND+"_"+cPerf+"_"+dType;
+    if ($('#'+datumID).length > 0) {
+
+    } else {
+        $('.D'+num+'Data').append(
+            '<div id="' + datumID + '" class="datum datumD'+num+' d'+cCycle+'"></div>'
+        );
+    }
+
+
+    //$('#'+datumID).css("bottom",(ySpace*Number(cCycle)) + "px");
+    $('#'+datumID).css({
+        bottom: (ySpace*Number(cCycle)) + "px",
+        left: (50 + (240*(diff))) + "px"
+    });
+}
 
 function runDrumLoop() {
     (function next() {
@@ -78,6 +95,9 @@ function runDrumLoop() {
         if (currentP == "D2") {
             currentND2 = adjustN;
         }
+        
+        // Graph
+
 
         // Actual loop with pause //
         setTimeout(function () {
@@ -89,11 +109,13 @@ function runDrumLoop() {
             // Loop for Drummer 1 //
             if (currentP == "D1") {
                 modifyDisplay(1,currentND1,currentVol,220,"blue","#ADD8E6",timeMult);
+                plotDatum(1,currentCycle,currentND1,currentP,dataType,diffT);
             }
 
             // Loop for Drummer 2 //
             if (currentP == "D2") {
                 modifyDisplay(2,currentND2,currentVol,330,"green","#90EE90",timeMult);
+                plotDatum(2,currentCycle,currentND2,currentP,dataType,diffT);
             }
 
 
