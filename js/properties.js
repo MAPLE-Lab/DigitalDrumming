@@ -10,6 +10,7 @@
     var halt = false; // Stop playback (can only be reset)
     var dataType = "experimental"; // Choose between data sets to load
     var playing = "no";
+    var gridOption = true;
 
 ////////////////
 // Load Data //
@@ -54,14 +55,14 @@
 // Audio Production //
 /////////////////////
     var drumVol = [ // Volume for notes 1-8
-        0.5,
+        0.2,
         0.3,
-        0.7,
-        1,
+        0.4,
         0.5,
+        0.2,
         0.3,
-        0.7,
-        1
+        0.4,
+        0.5
     ];
     var drumPitch = [ // Pitch for notes 1-8
         220,
@@ -87,3 +88,4 @@
     var currentPitch = 200;
     var currentCol = "green";
     var adjustN = 1;
+    var startCol = "lightred";

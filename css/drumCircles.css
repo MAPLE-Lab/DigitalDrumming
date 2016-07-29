@@ -3,7 +3,7 @@
     height: 300px;
     left: 50px;
     top: 50px;
-    border: 1px solid darkgrey;
+    border: 2px solid darkgrey;
     border-radius: 50%;
     z-index: 1;
     position: absolute;
@@ -11,16 +11,16 @@
 
 .gridLine {
     width: 0px;
-    height: 175px;
+    height: 74px;
     position:absolute;
-    left: 200px;
-    top: 25px;
+    left: 201px;
+    top: 50px;
     margin: 0 0 0 0;
-    transform-origin: bottom;
+    transform-origin: 43% 200%;
 }
 
 .Major {
-    border: 1px solid #aaaaaa;
+    border: 1px solid #BBBBBB;
     z-index: 3;
 }
 
@@ -33,19 +33,17 @@
 }
 
 #circleD1 {
-    transform: rotate(45deg);
     z-index: 5;
 }
 
 #circleD2 {
     width: 150px;
     height: 150px;
-    left: 126px;
-    top: 126px;
-    border: 1px solid darkgrey;
+    left: 125px;
+    top: 125px;
+    border: 2px solid darkgrey;
     position: absolute;
     z-index: 5;
-    transform: rotate(45deg);
 }
 
 .circleConts1 {
@@ -65,29 +63,41 @@
 }
 
 .inCircle {
-    width: 30px;
-    height: 30px;
-    border: 1px solid black;
+    width: 29px;
+    height: 29px;
     border-radius: 50%;
     background-color: white;
+    left: calc(50% - 16px);
+    top: -16px;
     z-index: 2;
     position: absolute;
+
 }
+
+.inCircle.c1 {
+    border: 1px solid blue;
+    transform-origin: 52% 535%;
+}
+.inCircle.c2 {
+    border: 1px solid green;
+    transform-origin: 52% 293%;
+}
+
 
 .circleTick {
     width: 0px;
-    height: 19px;
+    height: 10px;
+    top: 30px;
+    left: 14px;
     z-index: 1;
-    border: 1px solid black;
-    transform: rotate(-45deg);
-    top: 16px;
-    left: 26px;
+    border: 1px solid blue;
     position: relative;
 }
 .tickD2 {
-    top: -6px;
-    left: 4px;
+    top: -12px;
+    border: 1px solid green;
 }
+
 .holdD2 {
     background-color: green !important;
 }
@@ -167,6 +177,9 @@ p {
 .pos12 {
     transform: rotate(330deg);
 }
-.n1 {
-    background-color: black;
+.c2.n1 {
+    background-color: lightgreen;
+}
+.c1.n1 {
+    background-color: lightblue;
 }

@@ -3,7 +3,7 @@
  */
 
 // Main function to adjust circle display
-function modifyDisplay(num,cND,cVol,cPitch,cCol,tMult) {
+function modifyDisplay(num,cND,cVol,cPitch,cCol,startCol,tMult) {
     // Play audio
     T("perc", {r:200}, T("sin", {freq:cPitch, mul:cVol})).on("ended", function() {
         this.pause();
@@ -16,7 +16,7 @@ function modifyDisplay(num,cND,cVol,cPitch,cCol,tMult) {
         }, 150 * 1 / Math.abs(tMult));
         if (currentN[0] == 1) {
             $('.c'+num+'.n' + cND).animate({
-                backgroundColor: "black"
+                backgroundColor: startCol
             }, 200 * 1 / Math.abs(tMult));
         } else {
             $('.c'+num+'.n' + cND).animate({
@@ -26,7 +26,7 @@ function modifyDisplay(num,cND,cVol,cPitch,cCol,tMult) {
     }
 
     // Rotate Position
-    $('.circleConts'+num+'.pos'+cND).css("transform", "rotate(" + (360*diffT) + "deg)");
+    $('.c'+num+'.pos'+cND).css("transform", "rotate(" + (360*diffT) + "deg)");
 }
 
 // Resets display
@@ -88,12 +88,12 @@ function runDrumLoop() {
 
             // Loop for Drummer 1 //
             if (currentP == "D1") {
-                modifyDisplay(1,currentND1,currentVol,currentPitch,"blue",timeMult);
+                modifyDisplay(1,currentND1,currentVol,220,"blue","#ADD8E6",timeMult);
             }
 
             // Loop for Drummer 2 //
             if (currentP == "D2") {
-                modifyDisplay(2,currentND2,currentVol,currentPitch,"green",timeMult);
+                modifyDisplay(2,currentND2,currentVol,330,"green","#90EE90",timeMult);
             }
 
 

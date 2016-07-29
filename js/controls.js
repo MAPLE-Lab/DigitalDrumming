@@ -20,11 +20,30 @@ var menuControl = function () {
             });
         }
     });
+    $('#gridToggle').click(function() {
+        if (gridOption == true) {
+            gridOption = false;
+            $('.gridLine').hide();
+            $('.gridToggleDot').animate({
+                top: "15px"
+            }, {
+                queue: false
+            });
+        } else {
+            gridOption = true;
+            $('.gridLine').show();
+            $('.gridToggleDot').animate({
+                top: "3px"
+            }, {
+                queue: false
+            });
+        }
+    });
 
     $('#dataToggle').click(function() {
         playing = "no";
         pause = true;
-        $('.button').removeClass('buttonClicked');
+        $('.bttn').removeClass('buttonClicked');
         if (drumData == expData) {
             drumData = theoData;
             resetDrumLoop();
@@ -41,7 +60,7 @@ var menuControl = function () {
     });
 
     $('#resetBttn').click(function() {
-        $('.button').removeClass('buttonClicked');
+        $('.bttn').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
         playing = "no";
         pause = true;
@@ -51,7 +70,7 @@ var menuControl = function () {
         $(this).toggleClass('hovered');
     });
     $('#playBttn').click(function() {
-        $('.button').removeClass('buttonClicked');
+        $('.bttn').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
         if (playing == "yes") {
             direction = "fwd";
@@ -66,7 +85,7 @@ var menuControl = function () {
         $(this).toggleClass('hovered');
     });
     $('#revBttn').click(function() {
-        $('.button').removeClass('buttonClicked');
+        $('.bttn').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
         if (playing == "yes") {
             direction = "rev";
@@ -81,7 +100,7 @@ var menuControl = function () {
         $(this).toggleClass('hovered');
     });
     $('#pauseBttn').click(function() {
-        $('.button').removeClass('buttonClicked');
+        $('.bttn').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
         playing = "no";
         pause = true;

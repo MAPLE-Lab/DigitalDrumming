@@ -16,13 +16,14 @@ $(document).ready(function() {
             '<div class="gridLine Major Maj' + n + '"></div>'
         );
         $('.Maj' + n).css("transform", "rotate(" + 30*(i-1) + "deg)");
-        for (j=1; j<=3; j++) {
-            var m = j.toString();
-            $('.Maj' + n).append(
-                '<div class="gridLine Minor Min' + m + '"></div>'
-            );
-            $('.Min' + m).css("transform", "rotate(" + 7*(j) + "deg)");
-        }
+        // Create Minor grid lines
+        //for (j=1; j<=3; j++) {
+        //    var m = j.toString();
+        //    $('.Maj' + n).append(
+        //        '<div class="gridLine Minor Min' + m + '"></div>'
+        //    );
+        //    $('.Min' + m).css("transform", "rotate(" + 7*(j) + "deg)");
+        //}
 
     }
 
@@ -33,16 +34,14 @@ $(document).ready(function() {
         var n = posNum.toString();
 
         $('#circleD1').append(
-            '<div class="circleConts1 pos' + n + '">' +
-                '<div class="inCircle c1 n' + n + '"></div>' +
-                '<div class="circleTick tickD1"></div>' +
-            '</div>'
+                '<div class="inCircle c1 n' + n + ' pos' + n + '">' +
+                    '<div class="circleTick tickD1"></div>' +
+                '</div>'
         );
         $('#circleD2').append(
-            '<div class="circleConts2 pos' + n + '">' +
-                '<div class="inCircle c2 n' + n + '"></div>' +
-                '<div class="circleTick tickD2"></div>' +
-            '</div>'
+                '<div class="inCircle c2 n' + n + ' pos' + n + '">' +
+                    '<div class="circleTick tickD2"></div>' +
+                '</div>'
         );
     }
 
