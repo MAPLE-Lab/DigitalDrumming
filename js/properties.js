@@ -93,3 +93,12 @@
     var ySpace = 345 / 67;
     var datumID = "default";
     var datumIDClass = '.default';
+    var xAxisLabelCol = [
+        "One",
+        "Two",
+        "Three",
+        "Four",
+        "Five",
+        "Six"
+    ];
+    var currXAxisLabel = "Default";

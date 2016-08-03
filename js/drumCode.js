@@ -54,7 +54,7 @@ function plotDatum(num,cCycle,cND,cPerf,dType,diff) {
     //$('#'+datumID).css("bottom",(ySpace*Number(cCycle)) + "px");
     $('#'+datumID).css({
         bottom: (ySpace*Number(cCycle)) + "px",
-        left: (50 + (240*(diff))) + "px"
+        left: (110 + (320*(diff))) + "px"
     });
 }
 

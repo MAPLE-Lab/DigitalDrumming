@@ -9,13 +9,13 @@ $(document).ready(function() {
             '<div id="circleD2" class="circle"></div>'
     );
 
-    // Create Major grid lines
-    for (i=1; i<=12; i++) {
+    // Create Radar grid lines
+    for (i=1; i<=6; i++) {
         var n = i.toString();
         $('#circleContainer').append(
             '<div class="gridLine Major Maj' + n + '"></div>'
         );
-        $('.Maj' + n).css("transform", "rotate(" + 30*(i-1) + "deg)");
+        $('.Maj' + n).css("transform", "rotate(" + 60*(i-1) + "deg)");
         // Create Minor grid lines
         //for (j=1; j<=3; j++) {
         //    var m = j.toString();
@@ -27,7 +27,7 @@ $(document).ready(function() {
 
     }
 
-    // Create inner note circles and gridlines
+    // Create Radar inner note circles and ticks
     for (i=1; i<=8; i++) {
         var posNum = notePos[i-1];
         var n = posNum.toString();
@@ -57,22 +57,26 @@ $(document).ready(function() {
     );
 
     // Create Axis Ticks
+    // Y Axis
     for (i=1; i<=numYTicks; i++) {
         spaceTicks = 345 / (numYTicks - 1);
+        labels = ySpace*i;
         $('#yAxis').append(
-            '<div class="yAxisTick tickPosY' + i + '"></div>'
+            '<div class="yAxisTick tickPosY' + i + '">' +
+                '<div class="yAxisLabel" id="yLabel'+i+'">' + i + '</div>' +
+            '</div>'
         );
         $('.tickPosY' + i).css("bottom", (5 + (spaceTicks * (i-1))) + "px");
     }
 
     // X Axis
-    for (i=1; i<=16; i++) {
+    for (i=1; i<=6; i++) {
         $('#xAxis').append(
-            '<div class="xAxisTick tickPosX' + i + '"></div>'
+            '<div class="xAxisTick tickPosX' + i + '">' +
+                '<div class="xAxisLabel" id="xLabel'+i+'">' + xAxisLabelCol[i-1] + '</div>' +
+                '<div class="xAxisGridline" id="xGridline'+i+'"></div>' +
+            '</div>'
         );
-        $('.tickPosX'+i).css("left",(50 + (20*(i-1))) + "px");
-        if (i%2 == 0) {
-            $('.tickPosX'+i).css("height", "2px");
-        } else {}
+        $('.tickPosX'+i).css("left",(111 + (53.4*(i-1))) + "px");
     }
 });
