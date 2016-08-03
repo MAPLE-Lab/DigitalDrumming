@@ -89,8 +89,8 @@
     var currentCol = "green";
     var adjustN = 1;
     var startCol = "lightred";
-    var numYTicks = 8;
-    var ySpace = 345 / 67;
+    var numYTicks = 9;
+    var ySpace = 345 / 66;
     var datumID = "default";
     var datumIDClass = '.default';
     var xAxisLabelCol = [

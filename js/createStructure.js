@@ -59,15 +59,18 @@ $(document).ready(function() {
     // Create Axis Ticks
     // Y Axis
     for (i=1; i<=numYTicks; i++) {
-        spaceTicks = 345 / (numYTicks - 1);
+        spaceTicks = Math.round(345 / (numYTicks - 1));
         labels = ySpace*i;
         $('#yAxis').append(
             '<div class="yAxisTick tickPosY' + i + '">' +
-                '<div class="yAxisLabel" id="yLabel'+i+'">' + i + '</div>' +
+                '<div class="yAxisLabel" id="yLabel'+i+'">' + Math.round(1 + (spaceTicks*(i-1)/345 *66)) + '</div>' +
             '</div>'
         );
         $('.tickPosY' + i).css("bottom", (5 + (spaceTicks * (i-1))) + "px");
     }
+
+    // Set first y-axis label to 1
+    $('#yLabel1').text("1");
 
     // X Axis
     for (i=1; i<=6; i++) {
