@@ -44,15 +44,16 @@ var menuControl = function () {
 
     $('#dataToggle').click(function() {
         playing = "no";
-        pause = true;
         $('.bttn').removeClass('buttonClicked');
         if (drumData == expData) {
             drumData = theoData;
             resetDrumLoop();
+            pause = true;
             $('#dataToggle').text("Theoretical");
         } else {
             drumData = expData;
             resetDrumLoop();
+            pause = true;
             $('#dataToggle').text("Experimental");
         }
         $('#playButton').text("Play");
@@ -65,8 +66,9 @@ var menuControl = function () {
         $('.bttn').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
         playing = "no";
-        pause = true;
         resetDrumLoop();
+        pause = true;
+        
     });
     $('#resetBttn').hover(function() {
         $(this).toggleClass('hovered');
