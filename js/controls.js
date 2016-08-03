@@ -24,6 +24,7 @@ var menuControl = function () {
         if (gridOption == true) {
             gridOption = false;
             $('.gridLine').hide();
+            $('.xAxisGridline').hide();
             $('.gridToggleDot').animate({
                 top: "15px"
             }, {
@@ -32,6 +33,7 @@ var menuControl = function () {
         } else {
             gridOption = true;
             $('.gridLine').show();
+            $('.xAxisGridline').show();
             $('.gridToggleDot').animate({
                 top: "3px"
             }, {

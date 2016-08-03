@@ -62,7 +62,7 @@
     width: 4px;
     height: 4px;
     border-radius: 50%;
-
+    opacity: 0.1;
     position: absolute;
 }
 .datumD2 {

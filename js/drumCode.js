@@ -4,10 +4,12 @@
 
 // Main function to adjust circle display
 function modifyDisplay(num,cND,cVol,cPitch,cCol,startCol,tMult) {
-    // Play audio
-    T("perc", {r:200}, T("sin", {freq:cPitch, mul:cVol})).on("ended", function() {
-        this.pause();
-    }).bang().play();
+    // Play audio if speed isn't too fast
+    if (timeMult <= 6) {
+        T("perc", {r:200}, T("sin", {freq:cPitch, mul:cVol})).on("ended", function() {
+            this.pause();
+        }).bang().play();
+    } else {}
 
     // Animate color
     if (colorOption == true) {
@@ -32,6 +34,7 @@ function modifyDisplay(num,cND,cVol,cPitch,cCol,startCol,tMult) {
 // Resets display
 function resetDrumLoop() {
     $('#cycleDisplay').text('1');
+    $('.datum').hide();
     counter = 0;
     currentT = 0;
     for (i=1; i<=12; i++) {
@@ -41,21 +44,34 @@ function resetDrumLoop() {
 
 
 function plotDatum(num,cCycle,cND,cPerf,dType,diff) {
-    datumID = "datum"+cCycle+"_"+cND+"_"+cPerf+"_"+dType;
-    if ($('#'+datumID).length > 0) {
+    // Define current Datum id
+    datumID = "datum"+cCycle+"_"+cND+"_"+cPerf;
 
+    // Check if datum exists. If not, create it.
+    if ($('#'+datumID).length > 0) {
     } else {
         $('.D'+num+'Data').append(
             '<div id="' + datumID + '" class="datum datumD'+num+' d'+cCycle+'"></div>'
         );
     }
 
-
-    //$('#'+datumID).css("bottom",(ySpace*Number(cCycle)) + "px");
-    $('#'+datumID).css({
+    // Position datum in new place
+    $('#' + datumID).css({
         bottom: (ySpace*Number(cCycle)) + "px",
         left: (110 + (320*(diff))) + "px"
     });
+
+    // Bring this datum out of hiding
+    $('#' + datumID).show();
+    $('#' + datumID).animate({
+        opacity: 1,
+    },200,false);
+    $('#' + datumID).animate({
+        opacity: 0.7,
+    },100,false);
+
+    // Subtle animation flash
+
 }
 
 function runDrumLoop() {
