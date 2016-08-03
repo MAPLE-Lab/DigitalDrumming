@@ -63,15 +63,14 @@ function plotDatum(num,cCycle,cND,cPerf,dType,diff) {
 
     // Bring this datum out of hiding
     $('#' + datumID).show();
+
+    // Subtle animation flash
     $('#' + datumID).animate({
         opacity: 1,
     },200,false);
     $('#' + datumID).animate({
         opacity: 0.7,
     },100,false);
-
-    // Subtle animation flash
-
 }
 
 function runDrumLoop() {
