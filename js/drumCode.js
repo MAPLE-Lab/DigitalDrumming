@@ -33,6 +33,7 @@ function modifyDisplay(num,cND,cVol,cPitch,cCol,startCol,tMult) {
 
 // Resets display
 function resetDrumLoop() {
+    resetCalled = true;
     $('#cycleDisplay').text('1');
     $('.datum').hide();
     counter = 0;
@@ -41,7 +42,6 @@ function resetDrumLoop() {
         $('.pos'+i).css("transform", "rotate(" + (30*(i-1)) + "deg)");
     }
 }
-
 
 function plotDatum(num,cCycle,cND,cPerf,dType,diff) {
     // Define current Datum id
@@ -79,7 +79,19 @@ function runDrumLoop() {
         // Main loop to go through data
 
         // Pause or Stop loop checks //
-        if (pause == true) return;
+        if (pause == true) {
+            if (resetCalled == true) {
+                resetCalled = false;
+                $('#cycleDisplay').text('1');
+                $('.datum').hide();
+                counter = 0;
+                currentT = 0;
+                for (i=1; i<=12; i++) {
+                    $('.pos'+i).css("transform", "rotate(" + (30*(i-1)) + "deg)");
+                }
+            }
+            return;
+        }
 
         // Set direction of loop //
         if (direction == "fwd") {

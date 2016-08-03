@@ -16,15 +16,6 @@ $(document).ready(function() {
             '<div class="gridLine Major Maj' + n + '"></div>'
         );
         $('.Maj' + n).css("transform", "rotate(" + 60*(i-1) + "deg)");
-        // Create Minor grid lines
-        //for (j=1; j<=3; j++) {
-        //    var m = j.toString();
-        //    $('.Maj' + n).append(
-        //        '<div class="gridLine Minor Min' + m + '"></div>'
-        //    );
-        //    $('.Min' + m).css("transform", "rotate(" + 7*(j) + "deg)");
-        //}
-
     }
 
     // Create Radar inner note circles and ticks

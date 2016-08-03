@@ -102,3 +102,4 @@
         "Six"
     ];
     var currXAxisLabel = "Default";
+    var resetCalled = false;
