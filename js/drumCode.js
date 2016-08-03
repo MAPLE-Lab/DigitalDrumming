@@ -80,7 +80,6 @@ function runDrumLoop() {
         // Pause or Stop loop checks //
         if (pause == true) {
             if (resetCalled == true) {
-                resetCalled = false;
                 $('#cycleDisplay').text('1');
                 $('.datum').hide();
                 counter = 0;
@@ -89,6 +88,7 @@ function runDrumLoop() {
                     $('.pos'+i).css("transform", "rotate(" + (30*(i-1)) + "deg)");
                 }
             }
+            resetCalled = false;
             return;
         }
 
