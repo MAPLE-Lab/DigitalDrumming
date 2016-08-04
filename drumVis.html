@@ -1,62 +1,110 @@
+<!--
+Digital Drumming Visualizer
+Based on a project focused on exploring the dynamics of Steve Reich's Drumming
+https://maplelab.net/reich
+
+MAPLE Lab, McMaster
+
+Written by Kyle Gauder
+Git Repo: https://github.com/MAPLE-Lab/DigitalDrumming
+
+Dependencies: jQuery, jQueryUI, Timbre.js
+This app builds itself automatically from javascript files
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Drumming Visualizer</title>
-    <!--jQuery-->
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="https://maplelab.net/tools/DigitalDrumming/lib/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="https://maplelab.net/tools/DigitalDrumming/lib/jquery-ui.theme.css">
+    <title>Drumming Visualizer</title><!--jQuery-->
 
-    <!-- timbre.js -->
-    <script src="https://maplelab.net/tools/DigitalDrumming/lib/timbre/timbre.js" type="text/javascript"></script>
-    <script src="https://maplelab.net/tools/DigitalDrumming/lib/timbre/audio-jsonp.js"></script>
-    <script src="https://maplelab.net/tools/DigitalDrumming/lib/timbre/jsmad.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js">
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js">
+    </script>
+    <link href="https://maplelab.net/tools/DigitalDrumming/lib/jquery-ui.css"
+          rel="stylesheet" type="text/css">
+    <link href=
+                  "https://maplelab.net/tools/DigitalDrumming/lib/jquery-ui.theme.css" rel=
+                  "stylesheet" type="text/css"><!-- timbre.js -->
 
-    <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="./css/drumCircles.css">
-    <link rel="stylesheet" type="text/css" href="./css/menu.css">
-    <link rel="stylesheet" type="text/css" href="./css/graph.css">
+    <script src=
+                    "https://maplelab.net/tools/DigitalDrumming/lib/timbre/timbre.js" type=
+                    "text/javascript">
+    </script>
+    <script src=
+                    "https://maplelab.net/tools/DigitalDrumming/lib/timbre/audio-jsonp.js">
+    </script>
+    <script src=
+                    "https://maplelab.net/tools/DigitalDrumming/lib/timbre/jsmad.js">
+    </script><!--CSS-->
+    <link href="./css/drumCircles.css" rel="stylesheet" type="text/css">
+    <link href="./css/menu.css" rel="stylesheet" type="text/css">
+    <link href="./css/graph.css" rel="stylesheet" type="text/css">
     <!--Javascript-->
-    <script type="text/javascript" src="./Data/theoreticalData.js"></script>
-    <script type="text/javascript" src="./Data/experimentalData.js"></script>
-    <script type="text/javascript" src="./js/properties.js"></script>
-    <script type="text/javascript" src="./js/createStructure.js"></script>
-    <script type="text/javascript" src="./js/controls.js"></script>
-    <script type="text/javascript" src="./js/drumCode.js"></script>
+
+    <script src="./Data/theoreticalData.js" type="text/javascript">
+    </script>
+    <script src="./Data/experimentalData.js" type="text/javascript">
+    </script>
+    <script src="./js/properties.js" type="text/javascript">
+    </script>
+    <script src="./js/createStructure.js" type="text/javascript">
+    </script>
+    <script src="./js/controls.js" type="text/javascript">
+    </script>
+    <script src="./js/drumCode.js" type="text/javascript">
+    </script>
 </head>
 <body>
-    <div id="mainDisplay">
-        <div id="circleContainer">
-        </div>
-        <div id="cycleDisplay">1</div>
-        <div id="sliderDisplay">
-            <label for="speed">Speed:</label>
-            <input type="text" id="speed" readonly>
-        </div>
-        <div id="speedSlider"></div>
-        <div id="graphDisplay">
-
-        </div>
-        <div id="colorToggle" class="Toggle" title="Toggles between showing color of notes">
-            <div class="colorToggleDot ToggleDot"></div>
-        </div>
-        <div id="gridToggle" class="Toggle" title="Toggles between showing color of notes">
-            <div class="gridToggleDot ToggleDot"></div>
-        </div>
-        <div id="menuBttnContainer">
-            <div id="resetBttn" class="bttn">RST</div>
-            <div id="revBttn" class="bttn">REV</div>
-            <div id="pauseBttn" class="bttn">PSE</div>
-            <div id="playBttn" class="bttn">PLAY</div>
-        </div>
-        <div id="dataToggle" class="bttn">DT</div>
-        <div id="alignmentDisplay">
-            <label for="alignmentInput">Alignment Range (ms)</label>
-            <input type="number" id="alignmentInput" step="1" value="2">
-        </div>
-
+<div id="mainDisplay">
+    <div id="circleContainer"></div>
+    <div id="cycleDisplay">
+        1
     </div>
+    <div id="sliderDisplay">
+        <label for="speed">Speed:</label> <input id="speed" readonly type=
+            "text">
+    </div>
+    <div id="speedSlider"></div>
+    <div id="graphDisplay"></div>
+    <div class="Toggle" id="colorToggle" title=
+            "Toggles between showing color of notes">
+        <div class="colorToggleDot ToggleDot"></div>
+    </div>
+    <div class="Toggle" id="gridToggle" title=
+            "Toggles between showing color of notes">
+        <div class="gridToggleDot ToggleDot"></div>
+    </div>
+    <div id="menuBttnContainer">
+        <div class="bttn" id="resetBttn">
+            RST
+        </div>
+        <div class="bttn" id="revBttn">
+            REV
+        </div>
+        <div class="bttn" id="pauseBttn">
+            STP
+        </div>
+        <div class="bttn" id="playBttn">
+            PLAY
+        </div>
+    </div>
+    <div class="bttn" id="dataToggle">
+        Theoretical
+    </div>
+    <div id="dataSelectContainer">
+        <div class="bttn selectbttn" id="D1Select">
+            D1
+        </div>
+        <div class="bttn selectbttn" id="D2Select">
+            D2
+        </div>
+    </div>
+    <div id="alignmentDisplay">
+        <label for="alignmentInput">Alignment Range (ms)</label> <input id=
+                                                                                "alignmentInput" step="1" type="number" value="2">
+    </div>
+</div>
 </body>
 </html>

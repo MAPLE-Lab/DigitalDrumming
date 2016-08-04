@@ -1,3 +1,16 @@
+/*Digital Drumming Visualizer
+
+Based on a project focused on exploring the dynamics of Steve Reich's Drumming
+https://maplelab.net/reich
+
+MAPLE Lab, McMaster
+
+Written by Kyle Gauder
+Git Repo: https://github.com/MAPLE-Lab/DigitalDrumming
+
+Styling for graph
+*/
+
 #graphDisplay {
     width: 480px;
     height: 400px;
@@ -5,69 +18,82 @@
     top: 65px;
     position: absolute;
 }
+
 #axisContainer {
     width: 100%;
     height: 100%;
 }
+
 .axis {
     position: absolute;
-    border: 1px solid black;
+    border: 1px solid #000;
     bottom: 40px;
     left: 45px;
 }
+
 #xAxis {
     width: 85%;
 }
+
 #yAxis {
     height: 350px;
 }
+
 .yAxisTick {
     width: 6px;
     position: absolute;
-    border:1px solid black;
+    border: 1px solid #000;
     bottom: 5px;
-    left:-7px;
+    left: -7px;
 }
+
 .yAxisLabel {
     position: absolute;
     left: -20px;
     top: -9px;
 }
+
 .xAxisTick {
     height: 6px;
     position: absolute;
-    border:1px solid black;
+    border: 1px solid #000;
 }
+
 .xAxisLabel {
     position: absolute;
     top: 8px;
     left: -12px;
 }
+
 .xAxisGridline {
-    position:absolute;
-    height:350px;
+    position: absolute;
+    height: 350px;
     bottom: 8px;
     left: -1px;
-    border:1px solid #c5c5c5;
+    border: 1px solid #c5c5c5;
 }
+
 #xGridline1 {
-    border:1px solid #aaaaaa;
+    border: 1px solid #aaa;
 }
+
 #dataContainer {
     left: 45px;
     position: absolute;
     bottom: 39px;
 }
+
 .datum {
     width: 4px;
     height: 4px;
     border-radius: 50%;
     position: absolute;
 }
+
 .datumD2 {
     border: 1px solid green;
 }
+
 .datumD1 {
     border: 1px solid blue;
 }
-

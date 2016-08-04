@@ -1,11 +1,24 @@
+/*Digital Drumming Visualizer
+
+Based on a project focused on exploring the dynamics of Steve Reich's Drumming
+https://maplelab.net/reich
+
+MAPLE Lab, McMaster
+
+Written by Kyle Gauder
+Git Repo: https://github.com/MAPLE-Lab/DigitalDrumming
+
+Styling for main layout and menu items
+*/
+
 #mainDisplay {
     width: 900px;
     height: 600px;
-    border: 1px solid black;
+    border: 1px solid #000;
     border-radius: 15px;
     position: relative;
     z-index: 1;
-    background-color: lightgrey;
+    background-color: #d3d3d3;
 }
 
 #circleContainer {
@@ -17,6 +30,7 @@
     width: 350px;
     left: 25px;
 }
+
 .Toggle {
     width: 15px;
     height: 30px;
@@ -40,30 +54,36 @@
     position: absolute;
     border: 1px solid #000;
 }
+
 #menuBttnContainer {
     width: 200px;
     left: 100px;
     position: relative;
 }
+
 .bttn {
     top: 10px;
     width: 40px;
     height: 25px;
-    border: 1px solid black;
+    border: 1px solid #000;
     position: relative;
     background-color: grey;
     cursor: pointer;
     text-align: center;
     float: left;
-    color: black !important;
+    color: #000 !important;
 }
+
 #dataToggle {
     left: 175px;
+    width: 100px;
     position: relative;
 }
+
 #playButton {
     background-color: #00efff;
 }
+
 #cycleDisplay {
     position: absolute;
     left: 21%;
@@ -73,22 +93,23 @@
 }
 
 .buttonClicked {
-    box-shadow: inset 0 0 7px 0px red;
+    box-shadow: inset 0 0 7px 0 red;
 }
 
 .hovered {
-    box-shadow: 0 0 7px 0px black;
+    box-shadow: 0 0 7px 0 #000;
 }
 
 #speed {
     border: 0;
     color: gray;
-    font-weight: bold;
-    width: 25px;
+    font-weight: 700;
+    width: 30px;
 }
+
 #sliderDisplay {
-    top:-15px;
-    position:relative;
+    top: -15px;
+    position: relative;
 }
 
 .ui-slider-horizontal .ui-slider-handle {
@@ -97,10 +118,16 @@
 }
 
 #alignmentDisplay {
-    position:relative;
+    position: relative;
     top: 50px;
     left: -100px;
 }
+
 #alignmentInput {
-    width: 25px;
+    width: 30px;
+}
+
+#dataSelectContainer {
+    position: relative;
+    left: 210px;
 }

@@ -1,9 +1,22 @@
+/*Digital Drumming Visualizer
+
+Based on a project focused on exploring the dynamics of Steve Reich's Drumming
+https://maplelab.net/reich
+
+MAPLE Lab, McMaster
+
+Written by Kyle Gauder
+Git Repo: https://github.com/MAPLE-Lab/DigitalDrumming
+
+Styling for Radar plot
+*/
+
 .dataFolder {
     display: none;
 }
 
 .aligned {
-    box-shadow: 0px 0px 6px red;
+    box-shadow: 0 0 6px red;
 }
 
 .circle {
@@ -18,24 +31,24 @@
 }
 
 .gridLine {
-    width: 0px;
+    width: 0;
     height: 74px;
-    position:absolute;
+    position: absolute;
     left: 201px;
     top: 50px;
-    margin: 0 0 0 0;
+    margin: 0;
     transform-origin: 43% 200%;
 }
 
 .Major {
-    border: 1px solid #BBBBBB;
+    border: 1px solid #BBB;
     z-index: 3;
 }
 
 .Minor {
-    border: 1px solid #aaaaaa;
+    border: 1px solid #aaa;
     top: 25px;
-    left: 0px;
+    left: 0;
     z-index: 2;
     height: 150px;
 }
@@ -74,26 +87,25 @@
     width: 29px;
     height: 29px;
     border-radius: 50%;
-    background-color: white;
+    background-color: #fff;
     left: calc(50% - 16px);
     top: -16px;
     z-index: 2;
     position: absolute;
-
 }
 
 .inCircle.c1 {
     border: 1px solid blue;
     transform-origin: 52% 535%;
 }
+
 .inCircle.c2 {
     border: 1px solid green;
     transform-origin: 52% 293%;
 }
 
-
 .circleTick {
-    width: 0px;
+    width: 0;
     height: 10px;
     top: 30px;
     left: 14px;
@@ -101,6 +113,7 @@
     border: 1px solid blue;
     position: relative;
 }
+
 .tickD2 {
     top: -12px;
     border: 1px solid green;
@@ -114,12 +127,11 @@
     background-color: blue !important;
 }
 
-
 .display {
     left: 400px;
     width: 75px;
     height: 50px;
-    border: 1px solid black;
+    border: 1px solid #000;
     position: relative;
 }
 
@@ -134,17 +146,20 @@
     left: 40%;
     position: relative;
 }
+
 p {
-    color: white;
+    color: #fff;
     position: relative;
     text-align: center;
     vertical-align: center;
     bottom: 7px;
 }
+
 .empty {
     display: none;
-    background-color: lightgrey;
+    background-color: #d3d3d3;
 }
+
 .pos1 {
     transform: rotate(0deg);
 }
@@ -156,12 +171,15 @@ p {
 .pos3 {
     transform: rotate(60deg);
 }
-.pos4{
+
+.pos4 {
     transform: rotate(90deg);
 }
+
 .pos5 {
     transform: rotate(120deg);
 }
+
 .pos6 {
     transform: rotate(150deg);
 }
@@ -173,21 +191,27 @@ p {
 .pos8 {
     transform: rotate(210deg);
 }
+
 .pos9 {
     transform: rotate(240deg);
 }
+
 .pos10 {
     transform: rotate(270deg);
 }
+
 .pos11 {
     transform: rotate(300deg);
 }
+
 .pos12 {
     transform: rotate(330deg);
 }
+
 .c2.n1 {
-    background-color: lightgreen;
+    background-color: #90ee90;
 }
+
 .c1.n1 {
-    background-color: lightblue;
+    background-color: #add8e6;
 }

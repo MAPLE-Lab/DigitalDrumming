@@ -1,8 +1,53 @@
-/**
- * Created by kyle on 2016-07-18.
- */
-var menuControl = function () {
+// Digital Drumming Visualizer
+// Based on a project focused on exploring the dynamics of Steve Reich's Drumming
+// https://maplelab.net/reich
+// MAPLE Lab, McMaster
+//
+//
+// Written by Kyle Gauder
+// Git Repo: https://github.com/MAPLE-Lab/DigitalDrumming
+//
+//
 
+// Coding for menu controls
+
+var menuControl = function() {
+    $('#D1Select').click(function() {
+        if ($(this).hasClass("buttonClicked")) {
+            $('.selectbttn').removeClass("buttonClicked");
+            $('.datumD1').css("opacity", "1");
+            $('.datumD2').css("opacity", "1");
+        } else {
+            $('.selectbttn').removeClass("buttonClicked");
+            $(this).addClass("buttonClicked");
+            $('.datumD1').css({
+                "opacity": "1",
+                "z-index": "2",
+            });
+            $('.datumD2').css({
+                "opacity": "0.3",
+                "z-index": "1",
+            });
+        }
+    });
+    $('#D2Select').click(function() {
+        if ($(this).hasClass("buttonClicked")) {
+            $('.selectbttn').removeClass("buttonClicked");
+            $('.datumD1').css("opacity", "1");
+            $('.datumD2').css("opacity", "1");
+        } else {
+            $('.selectbttn').removeClass("buttonClicked");
+            $(this).addClass("buttonClicked");
+            $('.datumD2').css({
+                "opacity": "1",
+                "z-index": "2",
+            });
+            $('.datumD1').css({
+                "opacity": "0.3",
+                "z-index": "1",
+            });
+        }
+    });
     $('#colorToggle').click(function() {
         if (colorOption == true) {
             colorOption = false;
@@ -41,7 +86,6 @@ var menuControl = function () {
             });
         }
     });
-
     $('#dataToggle').click(function() {
         playing = "no";
         $('.bttn').removeClass('buttonClicked');
@@ -61,14 +105,12 @@ var menuControl = function () {
     $('#dataToggle').hover(function() {
         $(this).toggleClass('hovered');
     });
-
     $('#resetBttn').click(function() {
         $('.bttn').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
         playing = "no";
         resetDrumLoop();
         pause = true;
-        
     });
     $('#resetBttn').hover(function() {
         $(this).toggleClass('hovered');
@@ -112,8 +154,7 @@ var menuControl = function () {
     $('#pauseBttn').hover(function() {
         $(this).toggleClass('hovered');
     });
-
-    $( "#speedSlider" ).slider({
+    $("#speedSlider").slider({
         min: 0.5,
         max: 10,
         step: 0.05,
@@ -123,9 +164,6 @@ var menuControl = function () {
             $('#speed').val(timeMult);
         }
     });
-
     $('#speed').val(timeMult);
-    
 };
-
 $(document).ready(menuControl);

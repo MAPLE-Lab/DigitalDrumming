@@ -1,6 +1,14 @@
-/**
- * Created by kyle on 2016-07-15.
- */
+// Digital Drumming Visualizer
+// Based on a project focused on exploring the dynamics of Steve Reich's Drumming
+// https://maplelab.net/reich
+// MAPLE Lab, McMaster
+//
+//
+// Written by Kyle Gauder
+// Git Repo: https://github.com/MAPLE-Lab/DigitalDrumming
+//
+//
+
 var theoData = [
     [0,0,'D1','1-d1','1'],
     [0,0,'D1','1-d1','1'],
