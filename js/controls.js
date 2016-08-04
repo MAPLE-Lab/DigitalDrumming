@@ -15,16 +15,16 @@ var menuControl = function() {
     $('#D1Select').click(function() {
         if ($(this).hasClass("buttonClicked")) {
             $('.selectbttn').removeClass("buttonClicked");
-            $('.datumD1').css("opacity", "1");
-            $('.datumD2').css("opacity", "1");
+            $('.D1Data').css("opacity", "1");
+            $('.D2Data').css("opacity", "1");
         } else {
             $('.selectbttn').removeClass("buttonClicked");
             $(this).addClass("buttonClicked");
-            $('.datumD1').css({
+            $('.D1Data').css({
                 "opacity": "1",
                 "z-index": "2",
             });
-            $('.datumD2').css({
+            $('.D2Data').css({
                 "opacity": "0.3",
                 "z-index": "1",
             });
@@ -33,16 +33,16 @@ var menuControl = function() {
     $('#D2Select').click(function() {
         if ($(this).hasClass("buttonClicked")) {
             $('.selectbttn').removeClass("buttonClicked");
-            $('.datumD1').css("opacity", "1");
-            $('.datumD2').css("opacity", "1");
+            $('.D1Data').css("opacity", "1");
+            $('.D2Data').css("opacity", "1");
         } else {
             $('.selectbttn').removeClass("buttonClicked");
             $(this).addClass("buttonClicked");
-            $('.datumD2').css({
+            $('.D2Data').css({
                 "opacity": "1",
                 "z-index": "2",
             });
-            $('.datumD1').css({
+            $('.D1Data').css({
                 "opacity": "0.3",
                 "z-index": "1",
             });
