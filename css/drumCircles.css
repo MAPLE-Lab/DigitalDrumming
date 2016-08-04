@@ -1,3 +1,11 @@
+.dataFolder {
+    display: none;
+}
+
+.aligned {
+    box-shadow: 0px 0px 6px red;
+}
+
 .circle {
     width: 300px;
     height: 300px;

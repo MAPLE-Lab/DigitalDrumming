@@ -24,12 +24,14 @@ $(document).ready(function() {
         var n = posNum.toString();
 
         $('#circleD1').append(
-                '<div class="inCircle c1 n' + n + ' pos' + n + '">' +
+                '<div class="inCircle c1 cID_' + i + ' n' + n + ' pos' + n + '">' +
+                    '<div class="dataFolder dataFCircle" id="D1_data' + i + '"></div>' +
                     '<div class="circleTick tickD1"></div>' +
                 '</div>'
         );
         $('#circleD2').append(
-                '<div class="inCircle c2 n' + n + ' pos' + n + '">' +
+                '<div class="inCircle c2 cID_' + i + ' n' + n + ' pos' + n + '">' +
+                    '<div class="dataFolder dataFCircle" id="D2_data' + i + '"></div>' +
                     '<div class="circleTick tickD2"></div>' +
                 '</div>'
         );

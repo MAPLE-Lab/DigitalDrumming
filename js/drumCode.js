@@ -3,9 +3,9 @@
  */
 
 // Main function to adjust circle display
-function modifyDisplay(num,cND,cVol,cPitch,cCol,startCol,tMult) {
+function modifyDisplay(num,cND,cVol,cPitch,cCol,startCol,tMult,noteNum) {
     // Play audio if speed isn't too fast
-    if (timeMult <= 6) {
+    if (timeMult < 6) {
         T("perc", {r:200}, T("sin", {freq:cPitch, mul:cVol})).on("ended", function() {
             this.pause();
         }).bang().play();
@@ -27,6 +27,9 @@ function modifyDisplay(num,cND,cVol,cPitch,cCol,startCol,tMult) {
         }
     }
 
+    // Load data into radar folders
+    $('#D' + num + '_data' + noteNum).text(String(diffT));
+    
     // Rotate Position
     $('.c'+num+'.pos'+cND).css("transform", "rotate(" + (360*diffT) + "deg)");
 }
@@ -43,6 +46,7 @@ function resetDrumLoop() {
     }
 }
 
+// Plots data onto graph
 function plotDatum(num,cCycle,cND,cPerf,dType,diff) {
     // Define current Datum id
     datumID = "datum"+cCycle+"_"+cND+"_"+cPerf;
@@ -51,7 +55,9 @@ function plotDatum(num,cCycle,cND,cPerf,dType,diff) {
     if ($('#'+datumID).length > 0) {
     } else {
         $('.D'+num+'Data').append(
-            '<div id="' + datumID + '" class="datum datumD'+num+' d'+cCycle+'"></div>'
+            '<div id="' + datumID + '" class="datum datumD'+num+' d'+cCycle+'">' +
+            '<div class="dataFolder dataFPlot" id="plot_' + datumID + '">' + diffT + '</div>' +
+            '</div>'
         );
     }
 
@@ -63,16 +69,27 @@ function plotDatum(num,cCycle,cND,cPerf,dType,diff) {
 
     // Bring this datum out of hiding
     $('#' + datumID).show();
-
-    // Subtle animation flash
-    $('#' + datumID).animate({
-        opacity: 1,
-    },200,false);
-    $('#' + datumID).animate({
-        opacity: 0.7,
-    },100,false);
 }
 
+// Checks if any note are aligned
+function alignNote() {
+    for (i=1; i<=8; i++) {
+        tempData1 = Number($('#D1_data' + i).text());
+        tempData2 = Number($('#D2_data' + i).text());
+        if ((tempData1 - alignmentRange) <= tempData2 && tempData2 <= (tempData1 + alignmentRange)) {
+            $('.inCircle.c1.cID_' + i).addClass("aligned");
+            $('.inCircle.c2.cID_' + i).addClass("aligned");
+        } else if ((tempData2 - alignmentRange) <= tempData1 && tempData1 <= (tempData2 + alignmentRange)) {
+            $('.inCircle.c1.cID_' + i).addClass("aligned");
+            $('.inCircle.c2.cID_' + i).addClass("aligned");
+        } else {
+            $('.inCircle.c1.cID_' + i).removeClass("aligned");
+            $('.inCircle.c2.cID_' + i).removeClass("aligned");
+        }
+    }
+}
+
+// Actual loop that goes through data
 function runDrumLoop() {
     (function next() {
         // Main loop to go through data
@@ -135,16 +152,17 @@ function runDrumLoop() {
 
             // Loop for Drummer 1 //
             if (currentP == "D1") {
-                modifyDisplay(1,currentND1,currentVol,220,"blue","#ADD8E6",timeMult);
+                modifyDisplay(1,currentND1,currentVol,220,"blue","#ADD8E6",timeMult,currentN[0]);
                 plotDatum(1,currentCycle,currentND1,currentP,dataType,diffT);
             }
 
             // Loop for Drummer 2 //
             if (currentP == "D2") {
-                modifyDisplay(2,currentND2,currentVol,330,"green","#90EE90",timeMult);
+                modifyDisplay(2,currentND2,currentVol,330,"green","#90EE90",timeMult,currentN[0]);
                 plotDatum(2,currentCycle,currentND2,currentP,dataType,diffT);
             }
 
+            alignNote();
 
             //
             next();

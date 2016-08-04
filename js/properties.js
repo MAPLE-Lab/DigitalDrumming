@@ -44,6 +44,7 @@
     // Unused
     var countD1 = 0; // Counter for how many times Drummer 1 has been updated
     var countD2 = 0; // Counter for how many times Drummer 2 has been updated
+    var alignmentRange = 0.02;
 
 ///////////////
 // Playback //
@@ -55,14 +56,14 @@
 // Audio Production //
 /////////////////////
     var drumVol = [ // Volume for notes 1-8
+        0.1,
         0.2,
         0.3,
         0.4,
-        0.5,
+        0.1,
         0.2,
         0.3,
-        0.4,
-        0.5
+        0.4
     ];
     var drumPitch = [ // Pitch for notes 1-8
         220,

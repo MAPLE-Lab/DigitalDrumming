@@ -116,12 +116,15 @@ var menuControl = function () {
     $( "#speedSlider" ).slider({
         min: 0.5,
         max: 10,
-        step: 0.01,
+        step: 0.05,
         value: 1,
         slide: function(event, ui) {
             timeMult = ui.value;
+            $('#speed').val(timeMult);
         }
     });
+
+    $('#speed').val(timeMult);
     
 };
 
