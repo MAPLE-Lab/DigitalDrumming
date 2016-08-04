@@ -37,7 +37,11 @@ Styling for Radar plot
     left: 201px;
     top: 50px;
     margin: 0;
-    transform-origin: 43% 200%;
+    -webkit-transform-origin:43% 200%;
+    -moz-transform-origin:43% 200%;
+    -ms-transform-origin:43% 200%;
+    -o-transform-origin:43% 200%;
+    transform-origin:43% 200%;
 }
 
 .Major {
@@ -96,12 +100,20 @@ Styling for Radar plot
 
 .inCircle.c1 {
     border: 1px solid blue;
-    transform-origin: 52% 535%;
+    -webkit-transform-origin:52% 535%;
+    -moz-transform-origin:52% 535%;
+    -ms-transform-origin:52% 535%;
+    -o-transform-origin:52% 535%;
+    transform-origin:52% 535%;
 }
 
 .inCircle.c2 {
     border: 1px solid green;
-    transform-origin: 52% 293%;
+    -webkit-transform-origin:51% 293%;
+    -moz-transform-origin:51% 293%;
+    -ms-transform-origin:51% 293%;
+    -o-transform-origin:51% 293%;
+    transform-origin:51% 293%;
 }
 
 .circleTick {
