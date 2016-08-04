@@ -15,37 +15,29 @@ var menuControl = function() {
     $('#D1Select').click(function() {
         if ($(this).hasClass("buttonClicked")) {
             $('.selectbttn').removeClass("buttonClicked");
-            $('.D1Data').css("opacity", "1");
-            $('.D2Data').css("opacity", "1");
+            $('.D1Data').fadeTo("fast",1);
+            $('.D2Data').fadeTo("fast",1);
         } else {
             $('.selectbttn').removeClass("buttonClicked");
             $(this).addClass("buttonClicked");
-            $('.D1Data').css({
-                "opacity": "1",
-                "z-index": "2",
-            });
-            $('.D2Data').css({
-                "opacity": "0.3",
-                "z-index": "1",
-            });
+            $('.D1Data').css("z-index","2");
+            $('.D1Data').fadeTo("fast",1);
+            $('.D2Data').css("z-index", "1");
+            $('.D2Data').fadeTo("fast",0.3);
         }
     });
     $('#D2Select').click(function() {
         if ($(this).hasClass("buttonClicked")) {
             $('.selectbttn').removeClass("buttonClicked");
-            $('.D1Data').css("opacity", "1");
-            $('.D2Data').css("opacity", "1");
+            $('.D1Data').fadeTo("fast",1);
+            $('.D2Data').fadeTo("fast",1);
         } else {
             $('.selectbttn').removeClass("buttonClicked");
             $(this).addClass("buttonClicked");
-            $('.D2Data').css({
-                "opacity": "1",
-                "z-index": "2",
-            });
-            $('.D1Data').css({
-                "opacity": "0.3",
-                "z-index": "1",
-            });
+            $('.D2Data').css("z-index", "2");
+            $('.D2Data').fadeTo("fast",1);
+            $('.D1Data').css("z-index","1");
+            $('.D1Data').fadeTo("fast",0.3);
         }
     });
     $('#colorToggle').click(function() {
