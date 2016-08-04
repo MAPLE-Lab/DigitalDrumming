@@ -73,6 +73,10 @@ function plotDatum(num,cCycle,cND,cPerf,dType,diff) {
 
 // Checks if any note are aligned
 function alignNote() {
+    // Before anything, check to load new alignment range
+    tempAlign = document.getElementById('alignmentInput').value;
+    alignmentRange = Number(tempAlign)/100;
+    // Then check if anything aligns
     for (i=1; i<=8; i++) {
         tempData1 = Number($('#D1_data' + i).text());
         tempData2 = Number($('#D2_data' + i).text());

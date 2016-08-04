@@ -55,6 +55,7 @@
     cursor: pointer;
     text-align: center;
     float: left;
+    color: black !important;
 }
 #dataToggle {
     left: 175px;
@@ -93,4 +94,13 @@
 .ui-slider-horizontal .ui-slider-handle {
     width: 10px;
     background: gray;
+}
+
+#alignmentDisplay {
+    position:relative;
+    top: 50px;
+    left: -100px;
+}
+#alignmentInput {
+    width: 25px;
 }
