@@ -90,26 +90,59 @@ function plotDatum(num, cCycle, cND, cPerf, dType, diff) {
 function alignNote() {
     // Before anything, check to load new alignment range
     tempAlign = document.getElementById('alignmentInput').value;
-    alignmentRange = Number(tempAlign) / 100;
-    // Then check if anything aligns
+    alignmentRange = Number(tempAlign) / scalingFactor;
+    alignmentRangeDEG = alignmentRange*360;
+
+    // Then check if anything aligns for D1
     for (i = 1; i <= 8; i++) {
-        tempData1 = Number($('#D1_data' + i).text());
-        tempData2 = Number($('#D2_data' + i).text());
-        if ((tempData1 - alignmentRange) <= tempData2 && tempData2 <= (
-            tempData1 + alignmentRange)) {
-            $('.inCircle.c1.cID_' + i).addClass("aligned");
-            $('.inCircle.c2.cID_' + i).addClass("aligned");
-        } else if ((tempData2 - alignmentRange) <= tempData1 && tempData1 <=
-            (tempData2 + alignmentRange)) {
-            $('.inCircle.c1.cID_' + i).addClass("aligned");
-            $('.inCircle.c2.cID_' + i).addClass("aligned");
+        loopD1flag = false;
+        loopD2flag = false;
+        for (j = 1; j <= 8; j++) {
+            tempData1 = Number($('#D1_data' + i).text()); // Drummer 1 data
+            tempData2 = Number($('#D2_data' + i).text()); // Drummer 2 data
+
+            tempData1DEG = tempData1*360;
+            tempData2DEG = tempData2*360;
+
+            if ((tempData1 - alignmentRange) <= tempData2 && tempData2 <= (
+                tempData1 + alignmentRange)) {
+                alignmentTracker[i-1,0] = i;
+                loopD1flag = true;
+            }
+            if ((tempData2 - alignmentRange) <= tempData1 && tempData1 <= (
+                tempData2 + alignmentRange)) {
+                alignmentTracker[i-1,1] = j;
+                loopD2flag = true;
+            }
+
+        }
+        if (loopD1flag == true) { }
+        else {
+            alignmentTracker[i-1,0] = 0;
+        }
+        if (loopD2flag == true) { }
+        else {
+            alignmentTracker[i-1,0] = 0;
+        }
+    }
+
+    // Check resulting array to show alignment
+    for (k = 0; k <=7; k++) {
+        currentAlign = alignmentTracker[k];
+        cAlignD1 = currentAlign[0];
+        cAlignD2 = currentAlign[1];
+        if ( cAlignD1 == 0) {
+            $('.inCircle.c1.cID_' + (k+1)).removeClass("aligned");
         } else {
-            $('.inCircle.c1.cID_' + i).removeClass("aligned");
-            $('.inCircle.c2.cID_' + i).removeClass("aligned");
+            $('.inCircle.c1.cID_' + (k+1)).addClass("aligned");
+        }
+        if ( cAlignD2 == 0 ) {
+            $('.inCircle.c2.cID_' + (k+1)).removeClass("aligned");
+        } else {
+            $('.inCircle.c2.cID_' + (k+1)).addClass("aligned");
         }
     }
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Run Drum Loop: Crux of the code. This iterates through dataset with time delay //
@@ -133,25 +166,28 @@ function runDrumLoop() {
             resetCalled = false;
             return;
         }
-        // Set direction of loop //
-        if (direction == "fwd") {
-            if (0 >= counter++ >= maxLoops) return;
-        } else if (direction == "rev") {
-            if (0 >= counter-- >= maxLoops) return;
-        } else {
-            if (0 >= counter++ >= maxLoops) return;
+
+        // Set Data Offset //
+        if (dataType == "experimental")  {
+            baseOffset = 19.6451613;
+        } else if (dataType == "theoretical") {
+            baseOffset = 0;
         }
-        // Set values for this loop //
+
+        // Make sure loop stays within bounds //
         if (counter - 1 < 0) {
             counterdiff = 0;
         } else {
             counterdiff = counter - 1;
         }
+
+        // Set values for this loop //
         currentT = Math.abs(drumData[counter][0] - drumData[counterdiff]
                 [0]); // time until next loop iteration
-        diffT = (drumData[counter][1]); // difference time to rotate with (against theoretical)
+        relativeT = (drumData[counter][1]); // difference time to rotate with (against theoretical)
+        diffT = (relativeT + baseOffset)/scalingFactor;
         currentP = drumData[counter][2]; // Performer for this loop
-        currentN = drumData[counter][3]; // Note number for this loop
+        currentN = drumData[counter][3]; // Note number for this loop (in form "1-d1"
         currentCycle = drumData[counter][4];
         currentVol = drumVol[currentN[0] - 1];
         currentPitch = drumPitch[currentN[0] - 1];
@@ -162,7 +198,7 @@ function runDrumLoop() {
         if (currentP == "D2") {
             currentND2 = adjustN;
         }
-        // Graph
+
         // Actual loop with pause //
         setTimeout(function() {
             // Change display to show the current cycle number //
@@ -189,5 +225,14 @@ function runDrumLoop() {
             //
             next();
         }, currentT * 1 / timeMult);
+
+        // Set direction of loop //
+        if (direction == "fwd") {
+            if (0 >= counter++ >= maxLoops) return;
+        } else if (direction == "rev") {
+            if (0 >= counter-- >= maxLoops) return;
+        } else {
+            if (0 >= counter++ >= maxLoops) return;
+        }
     })();
 }

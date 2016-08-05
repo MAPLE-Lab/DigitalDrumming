@@ -83,11 +83,13 @@ var menuControl = function() {
         $('.bttn').removeClass('buttonClicked');
         if (drumData == expData) {
             drumData = theoData;
+            dataType = "theoretical";
             resetDrumLoop();
             pause = true;
             $('#dataToggle').text("Theoretical");
         } else {
             drumData = expData;
+            dataType = "experimental";
             resetDrumLoop();
             pause = true;
             $('#dataToggle').text("Experimental");

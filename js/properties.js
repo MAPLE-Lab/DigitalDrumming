@@ -42,21 +42,35 @@ var notePos = [
     9,
     11,
 ];
+
+///////////////
+// Data Set //
+/////////////
+var baseOffset = 0;
+var theoOffset = 0;
+var expOffset = 19.6451613;
+
+var scalingFactor = 1276.661;
+
+
 ///////////////
 // Trackers //
 /////////////
 var counter = 0; // Main counter for the loop
 var counterdiff = 0;
 var currentT = 0; // Current time (in ms) to wait until next loop (is loaded dynamically)
+
 // Unused
 var countD1 = 0; // Counter for how many times Drummer 1 has been updated
 var countD2 = 0; // Counter for how many times Drummer 2 has been updated
-var alignmentRange = 0.02;
+var alignmentRange = 2; // in milleseconds
+
 ///////////////
 // Playback //
 /////////////
 var timeMult = 1; // Playback speed multiplier
 var direction = "fwd";
+
 ///////////////////////
 // Audio Production //
 /////////////////////
@@ -80,6 +94,7 @@ var drumPitch = [ // Pitch for notes 1-8
     220,
     220
 ];
+
 /////////////////
 // Set Values //
 ///////////////
@@ -101,3 +116,13 @@ var datumIDClass = '.default';
 var xAxisLabelCol = ["One", "Two", "Three", "Four", "Five", "Six"];
 var currXAxisLabel = "Default";
 var resetCalled = false;
+var alignmentTracker = [
+    [0,0],
+    [0,0],
+    [0,0],
+    [0,0],
+    [0,0],
+    [0,0],
+    [0,0],
+    [0,0],
+]
