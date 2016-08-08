@@ -131,3 +131,7 @@ Styling for main layout and menu items
     position: relative;
     left: 210px;
 }
+
+.dataHover {
+    box-shadow: 0px 0px 5px red;
+}

@@ -70,6 +70,7 @@ var alignmentRange = 2; // in milleseconds
 /////////////
 var timeMult = 1; // Playback speed multiplier
 var direction = "fwd";
+var audioOption = true;
 
 ///////////////////////
 // Audio Production //

@@ -104,3 +104,25 @@ Styling for graph
     opacity: 0.3;
     z-index: 1;
 }
+.currentDatum {
+    background-color: black;
+}
+
+.datumGraphFolder {
+    width: 60px; /* = 50*/
+    height: 16px;
+    top: -3px;
+    left: -100px;
+    opacity: 1;
+    background-color: gray;
+    box-shadow: 3px 3px 8px #000;
+    padding: 5px 5px 3px 5px;
+    border-radius: 5px;
+    z-index: 100;
+    position: absolute;
+    display: none;
+    color: #FFFFFF;
+    text-align: center;
+    cursor: auto;
+    font-family: "Times New Roman", Times, serif;
+}

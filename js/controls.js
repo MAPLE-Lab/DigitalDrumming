@@ -78,6 +78,23 @@ var menuControl = function() {
             });
         }
     });
+    $('#audioToggle').click(function() {
+        if (audioOption == true) {
+            audioOption = false;
+            $('.audioToggleDot').animate({
+                top: "15px"
+            }, {
+                queue: false
+            });
+        } else {
+            audioOption = true;
+            $('.audioToggleDot').animate({
+                top: "3px"
+            }, {
+                queue: false
+            });
+        }
+    });
     $('#dataToggle').click(function() {
         playing = "no";
         $('.bttn').removeClass('buttonClicked');
@@ -148,6 +165,7 @@ var menuControl = function() {
     $('#pauseBttn').hover(function() {
         $(this).toggleClass('hovered');
     });
+
     $("#speedSlider").slider({
         min: 0.5,
         max: 10,
@@ -159,5 +177,7 @@ var menuControl = function() {
         }
     });
     $('#speed').val(timeMult);
+
+
 };
 $(document).ready(menuControl);

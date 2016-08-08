@@ -16,7 +16,8 @@
 ///////////////////////////////////////////////////////////////////////////
 function modifyDisplay(num, cND, cVol, cPitch, cCol, startCol, tMult, noteNum) {
     // Play audio if speed isn't too fast
-    if (timeMult < 6) {
+
+    if (timeMult < 6 && audioOption == true) {
         T("perc", {
             r: 200
         }, T("sin", {
@@ -26,6 +27,7 @@ function modifyDisplay(num, cND, cVol, cPitch, cCol, startCol, tMult, noteNum) {
             this.pause();
         }).bang().play();
     } else {}
+
     // Animate color
     if (colorOption == true) {
         $('.c' + num + '.n' + cND).animate({
@@ -41,8 +43,10 @@ function modifyDisplay(num, cND, cVol, cPitch, cCol, startCol, tMult, noteNum) {
             }, 200 * 1 / Math.abs(tMult));
         }
     }
+
     // Load data into radar folders
     $('#D' + num + '_data' + noteNum).text(String(diffT));
+
     // Rotate Position
     $('.c' + num + '.pos' + cND).css("transform", "rotate(" + (360 * diffT) +
         "deg)");
@@ -68,20 +72,40 @@ function resetDrumLoop() {
 function plotDatum(num, cCycle, cND, cPerf, dType, diff) {
     // Define current Datum id
     datumID = "datum" + cCycle + "_" + cND + "_" + cPerf;
+
     // Check if datum exists. If not, create it.
     if ($('#' + datumID).length > 0) {} else {
-        $('.D' + num + 'Data').append('<div id="' + datumID +
-            '" class="datum datumD' + num + ' d' + cCycle + '">' +
-            '<div class="dataFolder dataFPlot" id="plot_' + datumID +
-            '">' + diffT + '</div>' + '</div>');
+        // Create element
+        $('.D' + num + 'Data').append(
+            '<div id="' + datumID + '" class="datum datumD' + num + ' d' + cCycle + '">' +
+                '<div class="dataFolder dataFPlot" id="plot_' + datumID + '">' + diffT + '</div>' +
+                '<div class="datumGraphFolder" >' + Math.round(diffT*scalingFactor) + ' ms</div>' +
+            '</div>');
+
+        // Create FX
+        $('#' + datumID).hover(function() {
+            $(this).addClass("dataHover");
+            $('.datumGraphFolder').hide();
+            $(this).children('.datumGraphFolder').show();
+        }, function() {
+            $(this).removeClass("dataHover");
+            $('.datumGraphFolder').hide();
+            $(this).children('.datumGraphFolder').hide();
+        });
     }
+
     // Position datum in new place
     $('#' + datumID).css({
         bottom: (ySpace * Number(cCycle)) + "px",
         left: (110 + (320 * (diff))) + "px"
     });
+
     // Bring this datum out of hiding
     $('#' + datumID).show();
+
+    // Show the current plotted datapoint
+    $('.datum').removeClass("currentDatum");
+    $('#' + datumID).addClass("currentDatum");
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -132,7 +156,6 @@ function alignNote() {
 /////////////////////////////////////////////////////////////////////////////////////
 // Run Drum Loop: Crux of the code. This iterates through dataset with time delay //
 ///////////////////////////////////////////////////////////////////////////////////
-
 function runDrumLoop() {
     (function next() {
         // Main loop to go through data
