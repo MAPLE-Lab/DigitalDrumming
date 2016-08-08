@@ -91,55 +91,40 @@ function alignNote() {
     // Before anything, check to load new alignment range
     tempAlign = document.getElementById('alignmentInput').value;
     alignmentRange = Number(tempAlign) / scalingFactor;
-    alignmentRangeDEG = alignmentRange*360;
 
     // Then check if anything aligns for D1
-    for (i = 1; i <= 8; i++) {
+    for (i = 1; i <= 8; i++) { // Drummer 1 (Outer)
         loopD1flag = false;
-        loopD2flag = false;
-        for (j = 1; j <= 8; j++) {
+        for (j = 1; j <= 8; j++) { // Drummer 2 (Inner)
+
             tempData1 = Number($('#D1_data' + i).text()); // Drummer 1 data
-            tempData2 = Number($('#D2_data' + i).text()); // Drummer 2 data
+            tempData2 = Number($('#D2_data' + j).text()); // Drummer 2 data
 
-            tempData1DEG = tempData1*360;
-            tempData2DEG = tempData2*360;
-
-            if ((tempData1 - alignmentRange) <= tempData2 && tempData2 <= (
-                tempData1 + alignmentRange)) {
-                alignmentTracker[i-1,0] = i;
-                loopD1flag = true;
-            }
             if ((tempData2 - alignmentRange) <= tempData1 && tempData1 <= (
                 tempData2 + alignmentRange)) {
-                alignmentTracker[i-1,1] = j;
-                loopD2flag = true;
+                alignmentTracker[i-1] = j;
+                loopD1flag = true;
+            } else if ((tempData2 - alignmentRange) <= (tempData1-1) && (tempData1-1) <= (
+                tempData2 + alignmentRange)) {
+                alignmentTracker[i-1] = j;
+                loopD1flag = true;
             }
-
         }
         if (loopD1flag == true) { }
         else {
-            alignmentTracker[i-1,0] = 0;
-        }
-        if (loopD2flag == true) { }
-        else {
-            alignmentTracker[i-1,0] = 0;
+            alignmentTracker[i-1] = 0;
         }
     }
 
     // Check resulting array to show alignment
-    for (k = 0; k <=7; k++) {
-        currentAlign = alignmentTracker[k];
-        cAlignD1 = currentAlign[0];
-        cAlignD2 = currentAlign[1];
-        if ( cAlignD1 == 0) {
-            $('.inCircle.c1.cID_' + (k+1)).removeClass("aligned");
+    $('.inCircle.c2').removeClass("aligned");
+    for (k = 1; k <=8; k++) {
+        currentAlign = alignmentTracker[k-1];
+        if ( currentAlign == 0) {
+            $('.inCircle.c1.cID_' + (k)).removeClass("aligned");
         } else {
-            $('.inCircle.c1.cID_' + (k+1)).addClass("aligned");
-        }
-        if ( cAlignD2 == 0 ) {
-            $('.inCircle.c2.cID_' + (k+1)).removeClass("aligned");
-        } else {
-            $('.inCircle.c2.cID_' + (k+1)).addClass("aligned");
+            $('.inCircle.c1.cID_' + (k)).addClass("aligned");
+            $('.inCircle.c2.cID_' + alignmentTracker[k-1]).addClass("aligned");
         }
     }
 }

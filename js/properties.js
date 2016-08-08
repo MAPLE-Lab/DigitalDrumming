@@ -116,13 +116,16 @@ var datumIDClass = '.default';
 var xAxisLabelCol = ["One", "Two", "Three", "Four", "Five", "Six"];
 var currXAxisLabel = "Default";
 var resetCalled = false;
+var currentAlign = 0;
 var alignmentTracker = [
-    [0,0],
-    [0,0],
-    [0,0],
-    [0,0],
-    [0,0],
-    [0,0],
-    [0,0],
-    [0,0],
-]
+    // Position = D1 Note
+    // Value = Aligned D2 Note
+    0, // 1
+    0, // 2
+    0, // 3
+    0, // 4
+    0, // 5
+    0, // 6
+    0, // 7
+    0  // 8
+];
