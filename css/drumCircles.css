@@ -15,9 +15,7 @@ Styling for Radar plot
     display: none;
 }
 
-.aligned {
-    box-shadow: 0 0 6px red;
-}
+
 
 .circle {
     width: 300px;
@@ -170,6 +168,10 @@ p {
 .empty {
     display: none;
     background-color: #d3d3d3;
+}
+
+.aligned {
+    box-shadow: inset 0 0 14px red;
 }
 
 .pos1 {
