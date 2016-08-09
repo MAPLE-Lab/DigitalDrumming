@@ -27,8 +27,10 @@ Styling for main layout and menu items
 }
 
 #speedSlider {
-    width: 350px;
+    width: 6px;
     left: 25px;
+    height: 165px;
+    position: absolute;
 }
 
 .Toggle {
@@ -41,7 +43,7 @@ Styling for main layout and menu items
     cursor: pointer;
     box-shadow: 1px 1px 5px #000;
     top: 37px;
-    left: 20px;
+    left: 50px;
 }
 
 .ToggleDot {
@@ -112,9 +114,12 @@ Styling for main layout and menu items
     position: relative;
 }
 
-.ui-slider-horizontal .ui-slider-handle {
-    width: 10px;
+.ui-slider-vertical .ui-slider-handle {
+    width: 16px;
+    left: -0.4em;
+    height: 6px;
     background: gray;
+    margin-bottom: -0.2em;
 }
 
 #alignmentDisplay {

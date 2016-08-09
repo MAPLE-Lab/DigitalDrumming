@@ -167,6 +167,7 @@ var menuControl = function() {
     });
 
     $("#speedSlider").slider({
+        orientation: "vertical",
         min: 0.5,
         max: 10,
         step: 0.05,
