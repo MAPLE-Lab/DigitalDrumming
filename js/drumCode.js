@@ -79,12 +79,14 @@ function plotDatum(num, cCycle, cND, cPerf, dType, diff) {
         $('.D' + num + 'Data').append(
             '<div id="' + datumID + '" class="datum datumD' + num + ' d' + cCycle + '">' +
                 '<div class="dataFolder dataFPlot" id="plot_' + datumID + '">' + diffT + '</div>' +
-                '<div class="datumGraphFolder" >' + Math.round(diffT*scalingFactor) + ' ms</div>' +
+                '<p class="datumGraphFolder" ></p>' +
             '</div>');
 
         // Create FX
         $('#' + datumID).hover(function() {
             $(this).addClass("dataHover");
+            $('.datum').css("z-index","1");
+            $(this).css("z-index","2");
             $('.datumGraphFolder').hide();
             $(this).children('.datumGraphFolder').show();
         }, function() {
@@ -94,18 +96,28 @@ function plotDatum(num, cCycle, cND, cPerf, dType, diff) {
         });
     }
 
+    // Insert new data into folders
+    $('#plot_' + datumID).text(diffT);
+    $('#' + datumID).children('.datumGraphFolder').html('Cycle: ' + cCycle +  '<br>Drummer: ' + num + '<br>Relative Time: ' + (diffT*scalingFactor).toFixed(1) + 'ms');
+
+
     // Position datum in new place
     $('#' + datumID).css({
         bottom: (ySpace * Number(cCycle)) + "px",
         left: (110 + (320 * (diff))) + "px"
     });
 
-    // Bring this datum out of hiding
-    $('#' + datumID).show();
+    // Bring this datum out of hiding (unless reverse, then hide it)
+    if (direction == "fwd") {
+        $('#' + datumID).show();
+    } else if (direction == "rev") {
+        $('#' + datumID).hide();
+    }
 
-    // Show the current plotted datapoint
-    $('.datum').removeClass("currentDatum");
-    $('#' + datumID).addClass("currentDatum");
+
+    // // Show the current plotted datapoint
+    // $('.datum').removeClass("currentDatum");
+    // $('#' + datumID).addClass("currentDatum");
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -141,14 +153,14 @@ function alignNote() {
     }
 
     // Check resulting array to show alignment
-    $('.inCircle.c2').removeClass("aligned");
+    $('.inCircle.c2').removeClass("alignedD2");
     for (k = 1; k <=8; k++) {
         currentAlign = alignmentTracker[k-1];
         if ( currentAlign == 0) {
-            $('.inCircle.c1.cID_' + (k)).removeClass("aligned");
+            $('.inCircle.c1.cID_' + (k)).removeClass("alignedD1");
         } else {
-            $('.inCircle.c1.cID_' + (k)).addClass("aligned");
-            $('.inCircle.c2.cID_' + alignmentTracker[k-1]).addClass("aligned");
+            $('.inCircle.c1.cID_' + (k)).addClass("alignedD1");
+            $('.inCircle.c2.cID_' + alignmentTracker[k-1]).addClass("alignedD2");
         }
     }
 }

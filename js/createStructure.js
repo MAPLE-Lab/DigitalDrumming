@@ -41,7 +41,9 @@ $(document).ready(function() {
     // Create Graph Layout
     $('#graphDisplay').append('<div id="axisContainer">' +
         '<div id="xAxis" class="axis"></div>' +
-        '<div id="yAxis" class="axis"></div>' +
+        '<div id="yAxis" class="axis">' +
+        '<div id="yAxisname">Measure Number</div>' +
+        '</div>' +
         '<div id="dataContainer">' + '<div class="D1Data"></div>' +
         '<div class="D2Data"></div>' + '</div>' + '</div>');
     // Create Axis Ticks

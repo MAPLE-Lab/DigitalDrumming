@@ -118,6 +118,7 @@ var xAxisLabelCol = ["One", "Two", "Three", "Four", "Five", "Six"];
 var currXAxisLabel = "Default";
 var resetCalled = false;
 var currentAlign = 0;
+var insertNumb = 0;
 var alignmentTracker = [
     // Position = D1 Note
     // Value = Aligned D2 Note

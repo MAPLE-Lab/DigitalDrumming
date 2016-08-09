@@ -47,6 +47,13 @@ Styling for graph
     left: -7px;
 }
 
+#yAxisname {
+    position: absolute;
+    width: 130px;
+    transform: rotate(-90deg);
+    top: 140px;
+    right: -22px;
+}
 .yAxisLabel {
     position: absolute;
     left: -20px;
@@ -109,10 +116,10 @@ Styling for graph
 }
 
 .datumGraphFolder {
-    width: 60px; /* = 50*/
-    height: 16px;
     top: -3px;
-    left: -100px;
+    height: 72px;
+    width: 100px;
+    left: -150px;
     opacity: 1;
     background-color: gray;
     box-shadow: 3px 3px 8px #000;
