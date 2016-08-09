@@ -12,11 +12,23 @@
 // Coding for menu controls
 
 var menuControl = function() {
+    $('#selectBoth').click(function() {
+        if ($(this).hasClass("buttonClicked")) {
+        } else {
+            $('.selectbttn').removeClass("buttonClicked");
+            $(this).addClass("buttonClicked");
+            $('.D1Data').css("z-index","2");
+            $('.D1Data').fadeTo("fast",1);
+            $('.D2Data').css("z-index", "1");
+            $('.D2Data').fadeTo("fast",1);
+        }
+    });
     $('#D1Select').click(function() {
         if ($(this).hasClass("buttonClicked")) {
             $('.selectbttn').removeClass("buttonClicked");
             $('.D1Data').fadeTo("fast",1);
             $('.D2Data').fadeTo("fast",1);
+            $('#selectBoth').addClass("buttonClicked");
         } else {
             $('.selectbttn').removeClass("buttonClicked");
             $(this).addClass("buttonClicked");
@@ -31,6 +43,7 @@ var menuControl = function() {
             $('.selectbttn').removeClass("buttonClicked");
             $('.D1Data').fadeTo("fast",1);
             $('.D2Data').fadeTo("fast",1);
+            $('#selectBoth').addClass("buttonClicked");
         } else {
             $('.selectbttn').removeClass("buttonClicked");
             $(this).addClass("buttonClicked");
@@ -97,7 +110,7 @@ var menuControl = function() {
     });
     $('#dataToggle').click(function() {
         playing = "no";
-        $('.bttn').removeClass('buttonClicked');
+        $('.controls').removeClass('buttonClicked');
         if (drumData == expData) {
             drumData = theoData;
             dataType = "theoretical";
@@ -117,7 +130,7 @@ var menuControl = function() {
         $(this).toggleClass('hovered');
     });
     $('#resetBttn').click(function() {
-        $('.bttn').removeClass('buttonClicked');
+        $('.controls').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
         playing = "no";
         resetDrumLoop();
@@ -127,7 +140,7 @@ var menuControl = function() {
         $(this).toggleClass('hovered');
     });
     $('#playBttn').click(function() {
-        $('.bttn').removeClass('buttonClicked');
+        $('.controls').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
         if (playing == "yes") {
             direction = "fwd";
@@ -142,7 +155,7 @@ var menuControl = function() {
         $(this).toggleClass('hovered');
     });
     $('#revBttn').click(function() {
-        $('.bttn').removeClass('buttonClicked');
+        $('.controls').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
         if (playing == "yes") {
             direction = "rev";
@@ -157,7 +170,7 @@ var menuControl = function() {
         $(this).toggleClass('hovered');
     });
     $('#pauseBttn').click(function() {
-        $('.bttn').removeClass('buttonClicked');
+        $('.controls').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
         playing = "no";
         pause = true;
