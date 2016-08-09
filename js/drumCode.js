@@ -172,6 +172,22 @@ function runDrumLoop() {
     (function next() {
         // Main loop to go through data
         // Pause or Stop loop checks //
+        if (counter > (maxLoops - 1) ) {
+            if (direction == "fwd") {
+                $('.controls').removeClass('buttonClicked');
+                $('#pauseBttn').addClass('buttonClicked');
+                playing = "no";
+                pause = true;
+            }
+        }
+        if (counter < 0) {
+            if (direction == "rev") {
+                $('.controls').removeClass('buttonClicked');
+                $('#pauseBttn').addClass('buttonClicked');
+                playing = "no";
+                pause = true;
+            }
+        }
         if (pause == true) {
             if (resetCalled == true) {
                 $('#cycleDisplay').text('1');
@@ -194,16 +210,28 @@ function runDrumLoop() {
             baseOffset = 0;
         }
 
-        // Make sure loop stays within bounds //
-        if (counter - 1 < 0) {
-            counterdiff = 0;
+        if (counter < 0) {
+            counter = 0;
+        } else if (counter >= maxLoops) {
+            counter = maxLoops - 1;
+        }
+
+
+        if (counter == 0) {
+            pastdiff = 0;
+        } else if (counter == (maxLoops-1)) {
+            pastdiff = counter;
         } else {
-            counterdiff = counter - 1;
+            if (direction == "fwd") {
+                pastdiff = counter - 1;
+            } else if (direction == "rev") {
+                pastdiff = counter + 1;
+            }
         }
 
         // Set values for this loop //
-        currentT = Math.abs(drumData[counter][0] - drumData[counterdiff]
-                [0]); // time until next loop iteration
+        maxLoops = drumData.length;
+        currentT = Math.abs(drumData[counter][0] - drumData[pastdiff][0]); // time until next loop iteration
         relativeT = (drumData[counter][1]); // difference time to rotate with (against theoretical)
         diffT = (relativeT + baseOffset)/scalingFactor;
         currentP = drumData[counter][2]; // Performer for this loop
@@ -246,13 +274,11 @@ function runDrumLoop() {
             next();
         }, currentT * 1 / timeMult);
 
-        // Set direction of loop //
         if (direction == "fwd") {
-            if (0 >= counter++ >= maxLoops) return;
+            counter = counter + 1;
         } else if (direction == "rev") {
-            if (0 >= counter-- >= maxLoops) return;
-        } else {
-            if (0 >= counter++ >= maxLoops) return;
+            counter = counter - 1;
         }
+
     })();
 }
