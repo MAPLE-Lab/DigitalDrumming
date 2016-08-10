@@ -46,6 +46,14 @@ Styling for graph
     bottom: 5px;
     left: -7px;
 }
+.yAxisTickMinor {
+    width: 2px;
+    position: absolute;
+    border: 1px solid #000;
+    bottom: 5px;
+    left: -3px;
+}
+
 
 #yAxisname {
     position: absolute;
@@ -132,4 +140,18 @@ Styling for graph
     text-align: center;
     cursor: auto;
     font-family: "Times New Roman", Times, serif;
+}
+
+.tickHover {
+    box-shadow: 0 0 5px red;
+}
+
+.tickTooltip {
+    display: none;
+    position: absolute;
+    background-color: grey;
+    border: 1px solid black;
+    right: 9px;
+    bottom: -10px;
+    border-radius: 6px;
 }

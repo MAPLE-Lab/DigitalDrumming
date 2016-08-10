@@ -46,20 +46,49 @@ $(document).ready(function() {
         '</div>' +
         '<div id="dataContainer">' + '<div class="D1Data"></div>' +
         '<div class="D2Data"></div>' + '</div>' + '</div>');
+
     // Create Axis Ticks
-    // Y Axis
-    for (i = 1; i <= numYTicks; i++) {
-        spaceTicks = Math.round(345 / (numYTicks - 1));
-        labels = ySpace * i;
-        $('#yAxis').append('<div class="yAxisTick tickPosY' + i + '">' +
-            '<div class="yAxisLabel" id="yLabel' + i + '">' + Math.round(
-                1 + (spaceTicks * (i - 1) / 345 * 66)) + '</div>' +
-            '</div>');
+    var majorCount = 8;
+    // Y Axis Major
+    for (i = 1; i <= 67; i++) {
+        // Figure out spacing
+        spaceTicks = 345 / (67-1);
+
+        // Track for Major Lines
+        majorCount = majorCount + 1;
+
+        // Add Major and Minor lines
+        if (majorCount >= 8) {
+            $('#yAxis').append('<div class="yAxisTick tickPosY' + i + '">' +
+                '<div class="yAxisLabel" id="yLabel' + i + '">' + i + '</div>' +
+                '<div class="yAxisLabeltooltip tickTooltip majorLabel" id="yLabel' + i + '">' + i + '</div>' +
+                '</div>');
+            majorCount = 0;
+        } else {
+            $('#yAxis').append('<div class="yAxisTickMinor tickPosY' + i + '">' +
+                '<div class="yAxisLabeltooltip tickTooltip minorLabel" id="yLabel' + i + '">' + i + '</div>' +
+                '</div>');
+        }
+
+        // Move lines in position
         $('.tickPosY' + i).css("bottom", (5 + (spaceTicks * (i - 1))) +
             "px");
+
+        // Add in hover effect
+        $('.tickPosY' + i).hover(function() {
+            $(this).addClass('tickHover');
+            $('.tickTooltip').css("z-index","1");
+            $(this).css("z-index","2");
+            $(this).children('.tickTooltip').fadeIn(100, false);
+        }, function() {
+            $(this).removeClass('tickHover');
+            $(this).children('.tickTooltip').fadeOut(100, false);
+        });
     }
+
     // Set first y-axis label to 1
     $('#yLabel1').text("1");
+
     // X Axis
     for (i = 1; i <= 6; i++) {
         $('#xAxis').append('<div class="xAxisTick tickPosX' + i + '">' +
