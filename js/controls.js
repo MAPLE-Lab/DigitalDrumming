@@ -20,7 +20,7 @@ var menuControl = function() {
         $('#pauseBttn').addClass('buttonClicked');
         playing = "no";
         pause = true;
-        setTimeout(function() {plotAllData();}, 300);
+        setTimeout(function() {plotAllData();}, 500);
     });
 
     $('#selectBoth').click(function() {
@@ -122,6 +122,7 @@ var menuControl = function() {
     $('#dataToggle').click(function() {
         playing = "no";
         $('.controls').removeClass('buttonClicked');
+        $('.yTicks').removeClass('currentYTick');
         if (drumData == expData) {
             drumData = theoData;
             dataType = "theoretical";
@@ -141,6 +142,7 @@ var menuControl = function() {
         $(this).toggleClass('hovered');
     });
     $('#resetBttn').click(function() {
+        $('.yTicks').removeClass('currentYTick');
         $('.controls').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
         playing = "no";
