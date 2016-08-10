@@ -79,6 +79,14 @@ function plotAllData() {
         currentN = drumData[datanum][3]; // Note number for this loop (in form "1-d1"
         currentCycle = drumData[datanum][4];
         adjustN = notePos[currentN[0] - 1];
+        // Set Data Offset //
+        if (dataType == "experimental")  {
+            baseOffset = 19.6451613;
+        } else if (dataType == "theoretical") {
+            baseOffset = 0;
+        }
+
+        // Actually plot now
         if (currentP == "D1") {
             currentND1 = adjustN;
             plotDatum(1, currentCycle, currentND1, currentP,
