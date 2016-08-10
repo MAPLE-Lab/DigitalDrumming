@@ -50,7 +50,7 @@ $(document).ready(function() {
     // Create Axis Ticks
     var majorCount = 8;
     // Y Axis Major
-    for (i = 1; i <= 67; i++) {
+    for (y= 1; y<= 67; y++) {
         // Figure out spacing
         spaceTicks = 345 / (67-1);
 
@@ -59,31 +59,49 @@ $(document).ready(function() {
 
         // Add Major and Minor lines
         if (majorCount >= 8) {
-            $('#yAxis').append('<div class="yAxisTick tickPosY' + i + '">' +
-                '<div class="yAxisLabel" id="yLabel' + i + '">' + i + '</div>' +
-                '<div class="yAxisLabeltooltip tickTooltip majorLabel" id="yLabel' + i + '">' + i + '</div>' +
+            $('#yAxis').append('<div class="yTicks yAxisTick tickPosY' + y+ '">' +
+                '<div class="yAxisLabel" id="yLabel' + y+ '">' + y+ '</div>' +
+                '<div class="yAxisLabeltooltip tickTooltip majorLabel" id="yLabel' + y+ '">' + y+ '</div>' +
                 '</div>');
             majorCount = 0;
         } else {
-            $('#yAxis').append('<div class="yAxisTickMinor tickPosY' + i + '">' +
-                '<div class="yAxisLabeltooltip tickTooltip minorLabel" id="yLabel' + i + '">' + i + '</div>' +
+            $('#yAxis').append('<div class="yTicks yAxisTickMinor tickPosY' + y+ '">' +
+                '<div class="yAxisLabeltooltip tickTooltip minorLabel" id="yLabel' + y+ '">' + y+ '</div>' +
                 '</div>');
         }
 
         // Move lines in position
-        $('.tickPosY' + i).css("bottom", (5 + (spaceTicks * (i - 1))) +
+        $('.tickPosY' + y).css("bottom", (5 + (spaceTicks * (y- 1))) +
             "px");
 
         // Add in hover effect
-        $('.tickPosY' + i).hover(function() {
+        $('.tickPosY' + y).hover(function() {
             $(this).addClass('tickHover');
-            $('.tickTooltip').css("z-index","1");
+            $('.yTicks').css("z-index","1");
             $(this).css("z-index","2");
             $(this).children('.tickTooltip').fadeIn(100, false);
         }, function() {
             $(this).removeClass('tickHover');
-            $(this).children('.tickTooltip').fadeOut(100, false);
+            $(this).children('.tickTooltip').fadeOut(200, false);
         });
+
+        // Add click effect
+        $('.tickPosY' + y).click(function() {
+            playing = "no";
+            pause = true;
+            currentCycle = Number($(this).children('.yAxisLabeltooltip').text());
+            $('.yTicks').removeClass('currentYTick');
+            $('.tickPosY' + currentCycle).addClass('currentYTick');
+            $('#cycleDisplay').text(currentCycle);
+            for (tickJ = 0; tickJ < (maxLoops - 1); tickJ++) {
+                cycleIteration = drumData[tickJ][4];
+                if (currentCycle == Number(cycleIteration)) {
+                    counter = tickJ;
+                    return;
+                }
+            }
+        });
+
     }
 
     // Set first y-axis label to 1

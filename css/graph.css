@@ -40,18 +40,18 @@ Styling for graph
 }
 
 .yAxisTick {
-    width: 6px;
+    width: 7px;
     position: absolute;
     border: 1px solid #000;
     bottom: 5px;
-    left: -7px;
+    right: 0px;
 }
 .yAxisTickMinor {
-    width: 2px;
+    width: 3px;
     position: absolute;
     border: 1px solid #000;
     bottom: 5px;
-    left: -3px;
+    right: 0px;
 }
 
 
@@ -151,7 +151,14 @@ Styling for graph
     position: absolute;
     background-color: grey;
     border: 1px solid black;
-    right: 9px;
+    right: 10px;
     bottom: -10px;
     border-radius: 6px;
+    width: 25px;
+    height: 19px;
+    text-align: center;
+}
+
+.currentYTick {
+    border: 1px solid red;
 }

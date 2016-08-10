@@ -247,6 +247,10 @@ function runDrumLoop() {
             currentND2 = adjustN;
         }
 
+        // Show indicator on y-axis
+        $('.yTicks').removeClass('currentYTick');
+        $('.tickPosY' + currentCycle).addClass('currentYTick');
+
         // Actual loop with pause //
         setTimeout(function() {
             // Change display to show the current cycle number //

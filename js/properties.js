@@ -42,7 +42,8 @@ var notePos = [
     9,
     11,
 ];
-
+var cycleIteration = 0;
+var chosenIteration = 0;
 ///////////////
 // Data Set //
 /////////////
@@ -131,3 +132,4 @@ var alignmentTracker = [
     0, // 7
     0  // 8
 ];
+var thisTicksCycle = 1;
