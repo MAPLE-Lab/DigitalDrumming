@@ -70,21 +70,22 @@ function resetDrumLoop() {
 // Plot entire dataset, skipping playback //
 ///////////////////////////////////////////
 function plotAllData() {
+    maxLoops = drumData.length;
+    // Set Data Offset //
+    if (dataType == "experimental")  {
+        baseOffset = 19.6451613;
+    } else if (dataType == "theoretical") {
+        baseOffset = 0;
+    }
     for (datanum=0; datanum<maxLoops; datanum++) {
         // Set values for this loop //
-        maxLoops = drumData.length;
+
         relativeT = (drumData[datanum][1]); // difference time to rotate with (against theoretical)
         diffT = (relativeT + baseOffset)/scalingFactor;
         currentP = drumData[datanum][2]; // Performer for this loop
         currentN = drumData[datanum][3]; // Note number for this loop (in form "1-d1"
         currentCycle = drumData[datanum][4];
         adjustN = notePos[currentN[0] - 1];
-        // Set Data Offset //
-        if (dataType == "experimental")  {
-            baseOffset = 19.6451613;
-        } else if (dataType == "theoretical") {
-            baseOffset = 0;
-        }
 
         // Actually plot now
         if (currentP == "D1") {
@@ -107,6 +108,13 @@ function plotAllData() {
 function plotDatum(num, cCycle, cND, cPerf, dType, diff) {
     // Define current Datum id
     datumID = "datum" + cCycle + "_" + cND + "_" + cPerf;
+
+    // Set Data Offset //
+    if (dType == "experimental")  {
+        baseOffset = 19.6451613;
+    } else if (dType == "theoretical") {
+        baseOffset = 0;
+    }
 
     // Check if datum exists. If not, create it.
     if ($('#' + datumID).length > 0) {} else {
@@ -238,19 +246,11 @@ function runDrumLoop() {
             return;
         }
 
-        // Set Data Offset //
-        if (dataType == "experimental")  {
-            baseOffset = 19.6451613;
-        } else if (dataType == "theoretical") {
-            baseOffset = 0;
-        }
-
         if (counter < 0) {
             counter = 0;
         } else if (counter >= maxLoops) {
             counter = maxLoops - 1;
         }
-
 
         if (counter == 0) {
             pastdiff = 0;
