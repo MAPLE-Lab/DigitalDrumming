@@ -12,6 +12,17 @@
 // Coding for menu controls
 
 var menuControl = function() {
+    $('#plotAllBttn').hover(function() {
+        $(this).toggleClass('hovered');
+    });
+    $('#plotAllBttn').click(function() {
+        $('.controls').removeClass('buttonClicked');
+        $('#pauseBttn').addClass('buttonClicked');
+        playing = "no";
+        pause = true;
+        setTimeout(function() {plotAllData();}, 300);
+    });
+
     $('#selectBoth').click(function() {
         if ($(this).hasClass("buttonClicked")) {
         } else {

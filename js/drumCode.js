@@ -66,6 +66,33 @@ function resetDrumLoop() {
     }
 }
 
+/////////////////////////////////////////////
+// Plot entire dataset, skipping playback //
+///////////////////////////////////////////
+function plotAllData() {
+    for (datanum=0; datanum<maxLoops; datanum++) {
+        // Set values for this loop //
+        maxLoops = drumData.length;
+        relativeT = (drumData[datanum][1]); // difference time to rotate with (against theoretical)
+        diffT = (relativeT + baseOffset)/scalingFactor;
+        currentP = drumData[datanum][2]; // Performer for this loop
+        currentN = drumData[datanum][3]; // Note number for this loop (in form "1-d1"
+        currentCycle = drumData[datanum][4];
+        adjustN = notePos[currentN[0] - 1];
+        if (currentP == "D1") {
+            currentND1 = adjustN;
+            plotDatum(1, currentCycle, currentND1, currentP,
+                dataType, diffT);
+        }
+        if (currentP == "D2") {
+            currentND2 = adjustN;
+            plotDatum(2, currentCycle, currentND2, currentP,
+                dataType, diffT);
+        }
+    }
+}
+
+
 //////////////////////////////////////////////////////////////////////
 // Plot Datum: Main function for plotting data on the scatter plot //
 ////////////////////////////////////////////////////////////////////

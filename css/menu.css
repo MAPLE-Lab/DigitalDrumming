@@ -115,6 +115,10 @@ Styling for main layout and menu items
 .hovered {
     box-shadow: 0 0 7px 0 #000;
 }
+#plotAllBttn {
+    left: 420px;
+    border-radius: 5px;
+}
 
 #speed {
     border: 0;
