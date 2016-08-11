@@ -45,6 +45,16 @@ Styling for graph
     border: 1px solid #000;
     bottom: 5px;
     right: -1px;
+    cursor: pointer;
+}
+.yAxisTick:before {
+    content: "";
+    position: absolute;
+    border: 1px solid transparent;
+    border-top: 2.5px solid transparent;
+    border-left: 8px solid transparent;
+    left: -1px;
+    top: 1px;
 }
 .yAxisTickMinor {
     width: 3px;
@@ -52,8 +62,17 @@ Styling for graph
     border: 1px solid #000;
     bottom: 5px;
     right: -1px;
+    cursor: pointer;
 }
-
+.yAxisTickMinor:before {
+    content: "";
+    position: absolute;
+    border: 1px solid transparent;
+    border-top: 2.5px solid transparent;
+    border-left: 4px solid transparent;
+    left: -1px;
+    top: 1px;
+}
 
 #yAxisname {
     position: absolute;
@@ -147,18 +166,33 @@ Styling for graph
 }
 
 .tickTooltip {
+    background: grey;
+    position: relative;
+    -moz-border-radius:    8px;
+    -webkit-border-radius: 8px;
+    border-radius:         8px;
     display: none;
     position: absolute;
-    background-color: grey;
-    border: 1px solid black;
-    right: 10px;
+    /*border: 1px solid black;*/
+    right: 9px;
     bottom: -10px;
-    border-radius: 6px;
-    width: 25px;
+    width: 27px;
     height: 20px;
     color: white;
     text-align: center;
 }
+.tickTooltip:after {
+    content: "";
+    position: absolute;
+    left: 91%;
+    top: 5px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-left: 8px solid grey;
+    border-bottom: 5px solid transparent;
+}
+
 
 .currentYTick {
     border: 1px solid red;
