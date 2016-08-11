@@ -133,3 +133,5 @@ var alignmentTracker = [
     0  // 8
 ];
 var thisTicksCycle = 1;
+var newPositionCounter = 0;
+var noteCheckFlag = "no";

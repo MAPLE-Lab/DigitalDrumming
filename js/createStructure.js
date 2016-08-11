@@ -89,6 +89,8 @@ $(document).ready(function() {
         $('.tickPosY' + y).click(function() {
             playing = "no";
             pause = true;
+            $('.controls').removeClass('buttonClicked');
+            $('#pauseBttn').addClass('buttonClicked');
             currentCycle = Number($(this).children('.yAxisLabeltooltip').text());
             $('.yTicks').removeClass('currentYTick');
             $('.tickPosY' + currentCycle).addClass('currentYTick');
@@ -100,6 +102,44 @@ $(document).ready(function() {
                     return;
                 }
             }
+            // newPositionCounter = 0;
+            // noteCheckFlag = "no";
+            // while (noteCheckFlag == "no") {
+            //     newPositionCounter = newPositionCounter + 1;
+            //     chosenIteration = drumData[counter + newPositionCounter][4];
+            //     if (currentCycle != Number(chosenIteration)) {
+            //         noteCheckFlag = "yes";
+            //         return;
+            //     } else {
+            //         // Load data into radar folders
+            //         // Set Data Offset //
+            //         if (dataType == "experimental")  {
+            //             baseOffset = 19.6451613;
+            //         } else if (dataType == "theoretical") {
+            //             baseOffset = 0;
+            //         }
+            //         relativeT = (drumData[counter][1]); // difference time to rotate with (against theoretical)
+            //         diffT = (relativeT + baseOffset)/scalingFactor;
+            //         currentP = drumData[counter + newPositionCounter][2]; // Performer for this loop
+            //         currentN = drumData[counter + newPositionCounter][3]; // Note number for this loop (in form "1-d1"
+            //         if (currentP == "D1") {
+            //             $('#D' + 1 + '_data' + currentN[0]).text(String(diffT));
+            //
+            //             // Rotate Position
+            //             $('.c' + 1 + '.pos' + currentN[0]).css("transform", "rotate(" + (360 * diffT) +
+            //                 "deg)");
+            //         }
+            //         if (currentP == "D2") {
+            //             $('#D' + 2 + '_data' + currentN[0]).text(String(diffT));
+            //
+            //             // Rotate Position
+            //             $('.c' + 2 + '.pos' + currentN[0]).css("transform", "rotate(" + (360 * diffT) +
+            //                 "deg)");
+            //         }
+            //
+            //     }
+            //
+            // }
         });
 
     }

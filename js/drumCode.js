@@ -264,6 +264,13 @@ function runDrumLoop() {
             }
         }
 
+        // Set Data Offset //
+        if (dataType == "experimental")  {
+            baseOffset = 19.6451613;
+        } else if (dataType == "theoretical") {
+            baseOffset = 0;
+        }
+
         // Set values for this loop //
         maxLoops = drumData.length;
         currentT = Math.abs(drumData[counter][0] - drumData[pastdiff][0]); // time until next loop iteration
