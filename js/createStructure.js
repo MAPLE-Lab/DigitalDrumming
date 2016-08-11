@@ -79,10 +79,10 @@ $(document).ready(function() {
             $(this).addClass('tickHover');
             $('.yTicks').css("z-index","1");
             $(this).css("z-index","2");
-            $(this).children('.tickTooltip').fadeIn(100, false);
+            $(this).children('.tickTooltip').fadeIn(80, false);
         }, function() {
             $(this).removeClass('tickHover');
-            $(this).children('.tickTooltip').fadeOut(200, false);
+            $(this).children('.tickTooltip').fadeOut(100, false);
         });
 
         // Add click effect
