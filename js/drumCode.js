@@ -16,7 +16,11 @@
 /////////
 
 Number.prototype.mod = function(n) {
-    return ((this%n)+n)%n;
+    if (this.toFixed(2) == n) {
+        return this;
+    } else {
+        return ((this % n) + n) % n;
+    }
 };
 
 /////////////////////////////////////////////////////////////////////////////
@@ -148,7 +152,7 @@ function plotDatum(num, cCycle, cND, cPerf, dType, diff) {
     }
 
     // adjust Data for mod 1-6
-    insertData = (7*(((diffT*scalingFactor) + beatDiff)/modScalingFactor)).mod(7);
+    insertData = (7*(((diffT*scalingFactor) + beatDiff)/modScalingFactor)).mod(6);
 
 
     // Insert new data into folders
