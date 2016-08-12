@@ -51,7 +51,9 @@ var baseOffset = 0;
 var theoOffset = 0;
 var expOffset = 19.6451613;
 
-var scalingFactor = 1276.661;
+var scalingFactor = 1276.66129032258;
+var modScalingFactor = 1489.438172;
+var beatDiff = 212.77688172043;
 
 
 ///////////////

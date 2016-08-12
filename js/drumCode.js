@@ -11,6 +11,14 @@
 
 // This file holds all the main functions used to plot the data and rotate the radar plot
 
+///////////
+// Math //
+/////////
+
+Number.prototype.mod = function(n) {
+    return ((this%n)+n)%n;
+};
+
 /////////////////////////////////////////////////////////////////////////////
 // Modify Display: Main function that plays audio and animates Radar plot //
 ///////////////////////////////////////////////////////////////////////////
@@ -139,9 +147,13 @@ function plotDatum(num, cCycle, cND, cPerf, dType, diff) {
         });
     }
 
+    // adjust Data for mod 1-6
+    insertData = (7*(((diffT*scalingFactor) + beatDiff)/modScalingFactor)).mod(7);
+
+
     // Insert new data into folders
     $('#plot_' + datumID).text(diffT);
-    $('#' + datumID).children('.datumGraphFolder').html('Cycle: ' + cCycle +  '<br>Drummer: ' + num + '<br>Relative Time: ' + (diffT*scalingFactor).toFixed(1) + 'ms');
+    $('#' + datumID).children('.datumGraphFolder').html('Cycle: ' + cCycle +  '<br>Drummer: ' + num + '<br>Beat: ' + insertData.toFixed(2));
 
 
     // Position datum in new place

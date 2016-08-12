@@ -17,6 +17,7 @@ Styling for graph
     left: 400px;
     top: 65px;
     position: absolute;
+    z-index: 5;
 }
 
 #axisContainer {
@@ -144,7 +145,7 @@ Styling for graph
 
 .datumGraphFolder {
     top: -3px;
-    height: 72px;
+    height: 60px;
     width: 100px;
     left: -150px;
     opacity: 1;
