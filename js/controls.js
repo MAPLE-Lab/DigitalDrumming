@@ -126,7 +126,9 @@ var menuControl = function() {
     $('#dataToggle').click(function() {
         playing = "no";
         $('.controls').removeClass('buttonClicked');
+        $('#pauseBttn').addClass('buttonClicked');
         $('.yTicks').removeClass('currentYTick');
+
         if (drumData == expData) {
             drumData = theoData;
             dataType = "theoretical";
@@ -146,7 +148,7 @@ var menuControl = function() {
     $('#resetBttn').click(function() {
         $('.yTicks').removeClass('currentYTick');
         $('.controls').removeClass('buttonClicked');
-        $(this).addClass('buttonClicked');
+        $('#pauseBttn').addClass('buttonClicked');
         playing = "no";
         resetDrumLoop();
         pause = true;

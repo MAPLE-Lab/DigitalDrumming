@@ -107,7 +107,7 @@ Styling for main layout and menu items
 }
 
 #plotAllBttn {
-    left: 480px;
+    left: 533px;
     bottom: 104px;
     border-radius: 5px;
     width: 40px;
@@ -116,14 +116,13 @@ Styling for main layout and menu items
 
 #dataSelectContainer {
     position: relative;
-    left: 176px;
+    left: 515px;
     bottom: 104px;
     z-index: 10;
 }
 
 .selectbttn {
     width: 30px;
-
 }
 
 #togglesContainer {
