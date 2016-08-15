@@ -128,7 +128,6 @@ var menuControl = function() {
         $('.controls').removeClass('buttonClicked');
         $('#pauseBttn').addClass('buttonClicked');
         $('.yTicks').removeClass('currentYTick');
-
         if (drumData == expData) {
             drumData = theoData;
             dataType = "theoretical";
