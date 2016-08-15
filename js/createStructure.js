@@ -156,4 +156,23 @@ $(document).ready(function() {
             '"></div>' + '</div>');
         $('.tickPosX' + i).css("left", (111 + (53.4 * (i - 1))) + "px");
     }
+
+    // Create Comparison Viewer
+    $('#comparisonDisplay').append(
+        '<div id="slot1">' +
+        '   <div id="slot1Title">Slot One</div>' +
+        '   <div id="DrummerNum_1" class="DrummerNum comparisonLabel"></div>' +
+        '   <div id="CycleNum_1" class="CycleNum comparisonLabel"></div>' +
+        '   <div id="DataNum_1" class="DataNum comparisonLabel"></div>' +
+        '</div>' +
+        '<div id="slot2">' +
+        '   <div id="slot2Title">Slot Two</div>' +
+        '   <div id="DrummerNum_2" class="DrummerNum comparisonLabel"></div>' +
+        '   <div id="CycleNum_2" class="CycleNum comparisonLabel"></div>' +
+        '   <div id="DataNum_2" class="DataNum comparisonLabel"></div>' +
+        '</div>' +
+        '<div id="comparison">' +
+        '   <div id="DifferenceNumber"></div>' +
+        '</div>'
+    );
 });

@@ -224,6 +224,35 @@ function alignNote() {
     }
 }
 
+////////
+// Load Comparison
+////////
+function loadComparison (slotNum,datumIDName) {
+    datuIDToLoad = datumIDName;
+
+    // Grab Data
+    dataToLoad = $('#plot_' + datuIDToLoad).text();
+
+    // Convert into either type
+    convertToMs = dataToLoad*scalingFactor;
+    convertToBeat = (7*(((convertToMs) + beatDiff)/modScalingFactor)).mod(6);
+
+    // Load info into slot
+    $('#slot' + slotNum).children('.DataNum').text(convertToMs.toFixed(2));
+}
+
+
+////////
+// Check Difference to Compare
+////////
+function checkDifference () {
+    firstNum = $('#DataNum_1').text();
+    secondNum = $('#DataNum_2').text();
+    differenceNum = Math.abs(firstNum - secondNum);
+    $('#DifferenceNumber').text('Difference = ' + differenceNum.toFixed(2));
+}
+
+
 /////////////////////////////////////////////////////////////////////////////////////
 // Run Drum Loop: Crux of the code. This iterates through dataset with time delay //
 ///////////////////////////////////////////////////////////////////////////////////

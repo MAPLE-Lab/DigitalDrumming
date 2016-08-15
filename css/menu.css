@@ -182,9 +182,9 @@ Styling for main layout and menu items
 .ui-slider-vertical .ui-slider-handle {
     width: 16px;
     left: -0.4em;
-    height: 10git stpx;
+    height: 10px;
     background: gray;
-    margin-bottom: -0.6em;
+    margin-bottom: -0.4em;
 }
 
 #alignmentDisplay {
@@ -202,4 +202,26 @@ label {
 
 .dataHover {
     box-shadow: 0px 0px 5px red;
+}
+
+#comparisonDisplay {
+    position: relative;
+    bottom: 121px;
+    height: 120px;
+    left: 125px;
+    width: 218px;
+    border: 1px solid black;
+}
+#slot1 {
+    float:left;
+}
+
+#slot2 {
+    float:right;
+}
+
+#comparison {
+    position:relative;
+    float: left;
+    top: 50px;
 }
