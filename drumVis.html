@@ -66,30 +66,41 @@ This app builds itself automatically from javascript files
     </div>
     <div id="speedSlider"></div>
     <div id="graphDisplay"></div>
-    <div class="Toggle" id="colorToggle" title=
-            "Toggles between showing color of notes">
-        <div class="colorToggleDot ToggleDot"></div>
-    </div>
-    <div class="Toggle" id="gridToggle" title=
-            "Toggles between showing color of notes">
-        <div class="gridToggleDot ToggleDot"></div>
-    </div>
-    <div class="Toggle" id="audioToggle" title=
-            "Toggle audio production">
-        <div class="audioToggleDot ToggleDot"></div>
+    <div id="togglesContainer">
+        <div id="colorToggleContainer">
+            <div class="toggleLabel" id="colorToggleLabel">Color: </div>
+            <div class="Toggle" id="colorToggle" title=
+                    "Toggles between showing color of notes">
+                <div class="colorToggleDot ToggleDot"></div>
+            </div>
+        </div>
+        <div id="gridToggleContainer">
+            <div class="toggleLabel" id="gridToggleLabel">Grid: </div>
+            <div class="Toggle" id="gridToggle" title=
+                    "Toggles between showing color of notes">
+                <div class="gridToggleDot ToggleDot"></div>
+            </div>
+        </div>
+        <div id="audioToggleContainer">
+            <div class="toggleLabel" id="audioToggleLabel">&#x1f50a;</div>
+            <div class="Toggle" id="audioToggle" title=
+                    "Toggle audio production">
+                <div class="audioToggleDot ToggleDot"></div>
+            </div>
+        </div>
     </div>
     <div id="menuBttnContainer">
         <div class="bttn controls" id="resetBttn">
-            RST
+            RESET
         </div>
         <div class="bttn controls" id="revBttn">
-            REV
+            &#x25C0;
         </div>
-        <div class="bttn controls" id="pauseBttn">
-            STP
+        <div class="bttn controls buttonClicked" id="pauseBttn">
+            &#x25FC;
         </div>
         <div class="bttn controls" id="playBttn">
-            PLAY
+            &#x25B6;
         </div>
     </div>
     <div class="bttn" id="dataToggle">

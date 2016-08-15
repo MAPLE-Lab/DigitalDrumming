@@ -42,8 +42,6 @@ Styling for main layout and menu items
     z-index: 10;
     cursor: pointer;
     box-shadow: 1px 1px 5px #000;
-    top: 37px;
-    left: 50px;
 }
 
 .ToggleDot {
@@ -59,25 +57,32 @@ Styling for main layout and menu items
 
 #menuBttnContainer {
     width: 200px;
-    left: 100px;
+    left: 112px;
+    bottom: 185px;
     position: relative;
 }
 
 .bttn {
-    width: 40px;
+    width: 30px;
     height: 25px;
     border: 1px solid #000;
     position: relative;
     background-color: grey;
     cursor: pointer;
     text-align: center;
+    vertical-align: middle;
+    line-height: 25px;
+    font-size: 14px;
     float: left;
     color: #000 !important;
+    z-index: 10;
 }
 
 #resetBttn {
     border-radius: 5px;
-    left: -10px;
+    left: -20px;
+    font-size: 12px;
+    width: 40px;
 }
 
 #revBttn {
@@ -91,8 +96,9 @@ Styling for main layout and menu items
 }
 
 #dataToggle {
-    left: 175px;
-    width: 100px;
+    left: 139px;
+    width: 80px;
+    bottom: 185px;
     position: relative;
 }
 
@@ -100,6 +106,51 @@ Styling for main layout and menu items
     background-color: #00efff;
 }
 
+#plotAllBttn {
+    left: 480px;
+    bottom: 104px;
+    border-radius: 5px;
+    width: 40px;
+}
+
+
+#dataSelectContainer {
+    position: relative;
+    left: 176px;
+    bottom: 104px;
+    z-index: 10;
+}
+
+.selectbttn {
+    width: 30px;
+
+}
+
+#togglesContainer {
+    position: relative;
+    left: 80px;
+}
+
+.toggleLabel {
+    right: 37px;
+    top: 23px;
+    position: relative;
+    font-size: 12px;
+}
+#gridToggleContainer {
+    position: relative;
+    bottom: 9px;
+}
+#audioToggleContainer {
+    position: relative;
+    bottom: 29px;
+}
+
+#audioToggleLabel {
+    font-size: 16px;
+    top: 27px;
+    right: 26px;
+}
 #cycleDisplay {
     position: absolute;
     left: 21%;
@@ -115,10 +166,6 @@ Styling for main layout and menu items
 .hovered {
     box-shadow: 0 0 7px 0 #000;
 }
-#plotAllBttn {
-    left: 420px;
-    border-radius: 5px;
-}
 
 #speed {
     border: 0;
@@ -129,6 +176,7 @@ Styling for main layout and menu items
 
 #sliderDisplay {
     top: -15px;
+    left: 5px;
     position: relative;
 }
 
@@ -137,22 +185,20 @@ Styling for main layout and menu items
     left: -0.4em;
     height: 10git stpx;
     background: gray;
-    margin-bottom: -0.2em;
+    margin-bottom: -0.6em;
 }
 
 #alignmentDisplay {
     position: relative;
-    top: 50px;
-    left: -100px;
+    bottom: 150px;
+    right: 165px;
 }
 
 #alignmentInput {
     width: 30px;
 }
-
-#dataSelectContainer {
-    position: relative;
-    left: 210px;
+label {
+    font-size: 12px;
 }
 
 .dataHover {

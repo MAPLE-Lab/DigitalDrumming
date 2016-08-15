@@ -12,7 +12,7 @@
 // Coding for menu controls
 
 var menuControl = function() {
-    $('#plotAllBttn').hover(function() {
+    $('.bttn').hover(function() {
         $(this).toggleClass('hovered');
     });
     $('#plotAllBttn').click(function() {
@@ -34,6 +34,7 @@ var menuControl = function() {
             $('.D2Data').fadeTo("fast",1);
         }
     });
+
     $('#D1Select').click(function() {
         if ($(this).hasClass("buttonClicked")) {
             $('.selectbttn').removeClass("buttonClicked");
@@ -49,6 +50,7 @@ var menuControl = function() {
             $('.D2Data').fadeTo("fast",0.3);
         }
     });
+
     $('#D2Select').click(function() {
         if ($(this).hasClass("buttonClicked")) {
             $('.selectbttn').removeClass("buttonClicked");
@@ -104,6 +106,7 @@ var menuControl = function() {
     });
     $('#audioToggle').click(function() {
         if (audioOption == true) {
+            $('#audioToggleLabel').text("\uD83D\uDD07");
             audioOption = false;
             $('.audioToggleDot').animate({
                 top: "15px"
@@ -111,6 +114,7 @@ var menuControl = function() {
                 queue: false
             });
         } else {
+            $('#audioToggleLabel').text("\uD83D\uDD0A");
             audioOption = true;
             $('.audioToggleDot').animate({
                 top: "3px"
@@ -138,9 +142,7 @@ var menuControl = function() {
         }
         $('#playButton').text("Play");
     });
-    $('#dataToggle').hover(function() {
-        $(this).toggleClass('hovered');
-    });
+
     $('#resetBttn').click(function() {
         $('.yTicks').removeClass('currentYTick');
         $('.controls').removeClass('buttonClicked');
@@ -149,9 +151,7 @@ var menuControl = function() {
         resetDrumLoop();
         pause = true;
     });
-    $('#resetBttn').hover(function() {
-        $(this).toggleClass('hovered');
-    });
+
     $('#playBttn').click(function() {
         $('.controls').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
@@ -164,9 +164,7 @@ var menuControl = function() {
             runDrumLoop();
         }
     });
-    $('#playBttn').hover(function() {
-        $(this).toggleClass('hovered');
-    });
+
     $('#revBttn').click(function() {
         $('.controls').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
@@ -179,18 +177,14 @@ var menuControl = function() {
             runDrumLoop();
         }
     });
-    $('#revBttn').hover(function() {
-        $(this).toggleClass('hovered');
-    });
+
     $('#pauseBttn').click(function() {
         $('.controls').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
         playing = "no";
         pause = true;
     });
-    $('#pauseBttn').hover(function() {
-        $(this).toggleClass('hovered');
-    });
+
 
     $("#speedSlider").slider({
         orientation: "vertical",
