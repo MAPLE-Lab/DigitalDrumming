@@ -55,6 +55,8 @@ var scalingFactor = 1276.66129032258;
 var modScalingFactor = 1489.438172;
 var beatDiff = 212.77688172043;
 
+var comparisonSlotNum = 1;
+
 
 ///////////////
 // Trackers //

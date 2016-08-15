@@ -211,17 +211,27 @@ label {
     left: 125px;
     width: 218px;
     border: 1px solid black;
+    font-size: 14px;
 }
 #slot1 {
     float:left;
+    width:50%;
 }
 
 #slot2 {
     float:right;
+    width: 50%
 }
 
 #comparison {
     position:relative;
     float: left;
-    top: 50px;
+    top: 15px;
+}
+
+.compLabel {
+    text-align: right;
+    clear: both;
+    float: left;
+    margin-right: 5px;
 }

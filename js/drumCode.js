@@ -149,6 +149,13 @@ function plotDatum(num, cCycle, cND, cPerf, dType, diff) {
             $('.datumGraphFolder').hide();
             $(this).children('.datumGraphFolder').hide();
         });
+
+        $('#' + datumID).click(function() {
+            loadComparison(comparisonSlotNum,cCycle,cND,cPerf,"datum" + cCycle + "_" + cND + "_" + cPerf);
+            comparisonSlotNum = 2;
+            $('.slotTitles').css("text-shadow","transparent 0px 0px 0px");
+            $('#slot2Title').css("text-shadow","red 0px 0px 1px");
+        });
     }
 
     // adjust Data for mod 1-6
@@ -227,7 +234,7 @@ function alignNote() {
 ////////
 // Load Comparison
 ////////
-function loadComparison (slotNum,datumIDName) {
+function loadComparison (slotNum,cycle,note,performer,datumIDName) {
     datuIDToLoad = datumIDName;
 
     // Grab Data
@@ -238,7 +245,12 @@ function loadComparison (slotNum,datumIDName) {
     convertToBeat = (7*(((convertToMs) + beatDiff)/modScalingFactor)).mod(6);
 
     // Load info into slot
+    $('#slot' + slotNum).children('.CycleNum').text(cycle);
+    $('#slot' + slotNum).children('.DrummerNum').text(performer);
     $('#slot' + slotNum).children('.DataNum').text(convertToMs.toFixed(2));
+
+    // Check difference if there is any
+    checkDifference();
 }
 
 

@@ -160,15 +160,15 @@ $(document).ready(function() {
     // Create Comparison Viewer
     $('#comparisonDisplay').append(
         '<div id="slot1">' +
-        '   <div id="slot1Title">Slot One</div>' +
-        '   <div id="DrummerNum_1" class="DrummerNum comparisonLabel"></div>' +
-        '   <div id="CycleNum_1" class="CycleNum comparisonLabel"></div>' +
+        '   <div id="slot1Title" class="slotTitles">Slot One</div>' +
+        '   <label class="compLabel" for="DrummerNum_1">Drummer: </label><div id="DrummerNum_1" class="DrummerNum comparisonLabel"></div>' +
+        '   <label class="compLabel"  for="CycleNum_1">Cycle: </label><div id="CycleNum_1" class="CycleNum comparisonLabel"></div>' +
         '   <div id="DataNum_1" class="DataNum comparisonLabel"></div>' +
         '</div>' +
         '<div id="slot2">' +
-        '   <div id="slot2Title">Slot Two</div>' +
-        '   <div id="DrummerNum_2" class="DrummerNum comparisonLabel"></div>' +
-        '   <div id="CycleNum_2" class="CycleNum comparisonLabel"></div>' +
+        '   <div id="slot2Title" class="slotTitles">Slot Two</div>' +
+        '   <label class="compLabel"  for="DrummerNum_2">Drummer: </label><div id="DrummerNum_2" class="DrummerNum comparisonLabel"></div>' +
+        '   <label class="compLabel"  for="CycleNum_2">Cycle: </label><div id="CycleNum_2" class="CycleNum comparisonLabel"></div>' +
         '   <div id="DataNum_2" class="DataNum comparisonLabel"></div>' +
         '</div>' +
         '<div id="comparison">' +

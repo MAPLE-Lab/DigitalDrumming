@@ -200,6 +200,17 @@ var menuControl = function() {
     });
     $('#speed').val(timeMult);
 
+    $('#slot2Title').click(function() {
+        $('.slotTitles').css("text-shadow","transparent 0px 0px 0px");
+        $(this).css("text-shadow","red 0px 0px 1px");
+        comparisonSlotNum = 2;
+    });
+
+    $('#slot1Title').click(function() {
+        $('.slotTitles').css("text-shadow","transparent 0px 0px 0px");
+        $(this).css("text-shadow","red 0px 0px 1px");
+        comparisonSlotNum = 1;
+    });
 
 };
 $(document).ready(menuControl);
