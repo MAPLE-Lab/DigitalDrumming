@@ -91,14 +91,14 @@ Styling for main layout and menu items
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url('https://maplelab.net/tools/DigitalDrumming/assets/rewindButton.png');
+    background-image: url('https://maplelab.net/tools/DigitalDrumming/Elements/rewindButton.png');
 }
 
 #pauseBttn {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url('https://maplelab.net/tools/DigitalDrumming/assets/pauseButton.png');
+    background-image: url('https://maplelab.net/tools/DigitalDrumming/Elements/pauseButton.png');
 }
 
 #playBttn {
@@ -107,7 +107,7 @@ Styling for main layout and menu items
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url('https://maplelab.net/tools/DigitalDrumming/assets/playButton.png');
+    background-image: url('https://maplelab.net/tools/DigitalDrumming/Elements/playButton.png');
 }
 
 #dataToggle {
@@ -169,7 +169,7 @@ Styling for main layout and menu items
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url('https://maplelab.net/tools/DigitalDrumming/assets/speakerPlay.png');
+    background-image: url('https://maplelab.net/tools/DigitalDrumming/Elements/speakerPlay.png');
 
 }
 #cycleDisplay {

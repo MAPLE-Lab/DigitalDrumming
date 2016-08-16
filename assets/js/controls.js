@@ -106,7 +106,7 @@ var menuControl = function() {
     });
     $('#audioToggle').click(function() {
         if (audioOption == true) {
-            $('#audioToggleLabel').css("background-image","url('https://maplelab.net/tools/DigitalDrumming/assets/speakerMute.png')");
+            $('#audioToggleLabel').css("background-image","url('https://maplelab.net/tools/DigitalDrumming/Elements/speakerMute.png')");
             audioOption = false;
             $('.audioToggleDot').animate({
                 top: "15px"
@@ -114,7 +114,7 @@ var menuControl = function() {
                 queue: false
             });
         } else {
-            $('#audioToggleLabel').css("background-image","url('https://maplelab.net/tools/DigitalDrumming/assets/speakerPlay.png')");
+            $('#audioToggleLabel').css("background-image","url('https://maplelab.net/tools/DigitalDrumming/Elements/speakerPlay.png')");
             audioOption = true;
             $('.audioToggleDot').animate({
                 top: "3px"
