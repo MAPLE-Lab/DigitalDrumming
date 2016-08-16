@@ -88,11 +88,26 @@ Styling for main layout and menu items
 #revBttn {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('https://maplelab.net/tools/DigitalDrumming/assets/rewindButton.png');
+}
+
+#pauseBttn {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('https://maplelab.net/tools/DigitalDrumming/assets/pauseButton.png');
 }
 
 #playBttn {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('https://maplelab.net/tools/DigitalDrumming/assets/playButton.png');
 }
 
 #dataToggle {
@@ -108,7 +123,7 @@ Styling for main layout and menu items
 
 #plotAllBttn {
     left: 533px;
-    bottom: 104px;
+    bottom: 88px;
     border-radius: 5px;
     width: 40px;
 }
@@ -117,8 +132,8 @@ Styling for main layout and menu items
 #dataSelectContainer {
     position: relative;
     left: 515px;
-    bottom: 104px;
-    z-index: 10;
+    bottom: 88px;
+    z-index: 5;
 }
 
 .selectbttn {
@@ -149,6 +164,13 @@ Styling for main layout and menu items
     font-size: 16px;
     top: 27px;
     right: 26px;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('https://maplelab.net/tools/DigitalDrumming/assets/speakerPlay.png');
+
 }
 #cycleDisplay {
     position: absolute;

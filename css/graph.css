@@ -17,7 +17,7 @@ Styling for graph
     left: 400px;
     top: 65px;
     position: absolute;
-    z-index: 5;
+    z-index: 6;
 }
 
 #axisContainer {
@@ -34,10 +34,12 @@ Styling for graph
 
 #xAxis {
     width: 85%;
+    z-index: 1;
 }
 
 #yAxis {
     height: 350px;
+    z-index: 1;
 }
 
 .yAxisTick {
@@ -116,6 +118,7 @@ Styling for graph
     left: 45px;
     position: absolute;
     bottom: 39px;
+    z-index: 2;
 }
 
 .datum {

@@ -106,7 +106,7 @@ var menuControl = function() {
     });
     $('#audioToggle').click(function() {
         if (audioOption == true) {
-            $('#audioToggleLabel').text("\uD83D\uDD07");
+            $('#audioToggleLabel').css("background-image","url('https://maplelab.net/tools/DigitalDrumming/assets/speakerMute.png')");
             audioOption = false;
             $('.audioToggleDot').animate({
                 top: "15px"
@@ -114,7 +114,7 @@ var menuControl = function() {
                 queue: false
             });
         } else {
-            $('#audioToggleLabel').text("\uD83D\uDD0A");
+            $('#audioToggleLabel').css("background-image","url('https://maplelab.net/tools/DigitalDrumming/assets/speakerPlay.png')");
             audioOption = true;
             $('.audioToggleDot').animate({
                 top: "3px"
@@ -130,14 +130,14 @@ var menuControl = function() {
         $('.yTicks').removeClass('currentYTick');
         if (drumData == expData) {
             drumData = theoData;
-            dataType = "theoretical";
-            resetDrumLoop();
+            dataType = "theoretical"
+            resetCalled = true;
             pause = true;
             $('#dataToggle').text("Theoretical");
         } else {
             drumData = expData;
             dataType = "experimental";
-            resetDrumLoop();
+            resetCalled = true;
             pause = true;
             $('#dataToggle').text("Experimental");
         }
