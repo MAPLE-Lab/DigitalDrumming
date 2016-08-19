@@ -18,7 +18,6 @@ var menuControl = function() {
     $('#plotAllBttn').click(function() {
         $('.controls').removeClass('buttonClicked');
         $('#pauseBttn').addClass('buttonClicked');
-        playing = "no";
         pause = true;
         setTimeout(function() {plotAllData();}, 500);
     });
@@ -124,32 +123,28 @@ var menuControl = function() {
         }
     });
     $('#dataToggle').click(function() {
-        playing = "no";
         $('.controls').removeClass('buttonClicked');
         $('#pauseBttn').addClass('buttonClicked');
         $('.yTicks').removeClass('currentYTick');
         if (drumData == expData) {
             drumData = theoData;
             dataType = "theoretical"
-            pause = true;
             resetDrumLoop();
+            pause = true;
             $('#dataToggle').text("Theoretical");
         } else {
             drumData = expData;
             dataType = "experimental";
-            pause = true;
             resetDrumLoop();
+            pause = true;
             $('#dataToggle').text("Actual");
         }
-        $('#playButton').text("Play");
     });
 
     $('#resetBttn').click(function() {
         $('.yTicks').removeClass('currentYTick');
         $('.controls').removeClass('buttonClicked');
         $('#pauseBttn').addClass('buttonClicked');
-        playing = "no";
-        resetCalled = true;
         resetDrumLoop();
         pause = true;
     });
@@ -157,12 +152,11 @@ var menuControl = function() {
     $('#playBttn').click(function() {
         $('.controls').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
-        if (playing == "yes") {
-            direction = "fwd";
-        } else if (playing == "no") {
-            playing = "yes";
+        direction = "fwd";
+        if (pause == false) {
+        } else if (pause == true) {
             pause = false;
-            direction = "fwd";
+            resetCalled = false;
             runDrumLoop();
         }
     });
@@ -170,12 +164,11 @@ var menuControl = function() {
     $('#revBttn').click(function() {
         $('.controls').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
-        if (playing == "yes") {
-            direction = "rev";
-        } else if (playing == "no") {
-            playing = "yes";
+        direction = "rev";
+        if (pause == false) {
+        } else if (pause == true) {
             pause = false;
-            direction = "rev";
+            resetCalled = false;
             runDrumLoop();
         }
     });
@@ -183,7 +176,6 @@ var menuControl = function() {
     $('#pauseBttn').click(function() {
         $('.controls').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
-        playing = "no";
         pause = true;
     });
 
@@ -200,6 +192,10 @@ var menuControl = function() {
         }
     });
     $('#speed').val(timeMult);
+
+    $('.mainslot').hover(function() {
+        $(this).toggleClass('hovered');
+    });
 
     $('#slot1').click(function() {
         comparisonSlotNum = 1;

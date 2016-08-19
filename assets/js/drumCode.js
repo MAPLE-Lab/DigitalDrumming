@@ -71,7 +71,9 @@ function modifyDisplay(num, cND, cVol, cPitch, cCol, startCol, tMult, noteNum) {
 // Reset Drum Loop: Called when reset or data buttons are pushed //
 //////////////////////////////////////////////////////////////////
 function resetDrumLoop() {
+    resetCalled = true;
     $('#cycleDisplay').text('1');
+    $('.inCircle').hide();
     $('.datum').hide();
     counter = 0;
     currentT = 0;
@@ -84,6 +86,8 @@ function resetDrumLoop() {
 // Plot entire dataset, skipping playback //
 ///////////////////////////////////////////
 function plotAllData() {
+    temporaryDirection = direction;
+    direction = "fwd";
     $('.datum').hide();
     maxLoops = drumData.length;
     // Set Data Offset //
@@ -114,6 +118,7 @@ function plotAllData() {
                 dataType, diffT);
         }
     }
+    direction = temporaryDirection;
 }
 
 
@@ -294,30 +299,30 @@ function runDrumLoop() {
             if (direction == "fwd") {
                 $('.controls').removeClass('buttonClicked');
                 $('#pauseBttn').addClass('buttonClicked');
-                playing = "no";
                 pause = true;
             }
         }
-        if (counter < 0) {
+        if (counter < 1) {
             if (direction == "rev") {
                 $('.controls').removeClass('buttonClicked');
                 $('#pauseBttn').addClass('buttonClicked');
-                playing = "no";
-                pause = true;
+                pause = true;;
             }
         }
-        if (pause == true) {
-            if (resetCalled == true) {
-                $('#cycleDisplay').text('1');
-                $('.datum').hide();
-                counter = 0;
-                currentT = 0;
-                for (i = 1; i <= 12; i++) {
-                    $('.pos' + i).css("transform", "rotate(" + (30 * (i -
-                        1)) + "deg)");
-                }
+        if (resetCalled == true) {
+            $('#cycleDisplay').text('1');
+            $('.inCircle').hide();
+            $('.datum').hide();
+            counter = 0;
+            currentT = 0;
+            for (i = 1; i <= 12; i++) {
+                $('.pos' + i).css("transform", "rotate(" + (30 * (i -
+                    1)) + "deg)");
             }
+            pause = true;
             resetCalled = false;
+        }
+        if (pause == true) {
             return;
         }
 
