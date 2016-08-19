@@ -17,7 +17,7 @@ a, u {
 #mainDisplay {
     width: 900px;
     height: 615px;
-    left: 8px;
+    left: 10px;
     border-radius: 20px;
     position: relative;
     z-index: 1;

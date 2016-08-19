@@ -199,5 +199,9 @@ Styling for graph
 
 
 .currentYTick {
-    border: 1px solid red;
+    width: 5px;
+    right: -3px;
+}
+.currentYTickMajor {
+    width: 9px;
 }

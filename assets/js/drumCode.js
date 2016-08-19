@@ -352,7 +352,11 @@ function runDrumLoop() {
 
         // Show indicator on y-axis
         $('.yTicks').removeClass('currentYTick');
+        $('.yTicks').removeClass('currentYTickMajor');
         $('.tickPosY' + currentCycle).addClass('currentYTick');
+        if ( $('.tickPosY' + currentCycle).hasClass('yAxisTickMinor') ) {} else {
+            $('.tickPosY' + currentCycle).addClass('currentYTickMajor');
+        }
 
         // Actual loop with pause //
         setTimeout(function() {
