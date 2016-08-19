@@ -62,6 +62,9 @@ function modifyDisplay(num, cND, cVol, cPitch, cCol, startCol, tMult, noteNum) {
     // Rotate Position
     $('.c' + num + '.pos' + cND).css("transform", "rotate(" + (360 * diffT) +
         "deg)");
+
+    // Make visible if Hidden
+    $('.c' + num + '.pos' + cND).show();
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -350,6 +353,12 @@ function runDrumLoop() {
             currentND2 = adjustN;
         }
 
+        // Hide all if the loop is just beginning
+        if (counter == 0 && direction == "fwd") {
+            $('.inCircle').hide();
+        }
+
+
         // Show indicator on y-axis
         $('.yTicks').removeClass('currentYTick');
         $('.yTicks').removeClass('currentYTickMajor');
@@ -361,8 +370,14 @@ function runDrumLoop() {
         // Actual loop with pause //
         setTimeout(function() {
             // Change display to show the current cycle number //
-            if (currentN[0] == 1) {
-                $('#cycleDisplay').text(currentCycle);
+            if (direction == "fwd") {
+                if (currentN[0] == 1) {
+                    $('#cycleDisplay').text(currentCycle);
+                }
+            } else if (direction == "rev") {
+                if (currentN[0] == 8) {
+                    $('#cycleDisplay').text(currentCycle);
+                }
             }
             // Loop for Drummer 1 //
             if (currentP == "D1") {
