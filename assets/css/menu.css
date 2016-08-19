@@ -309,7 +309,7 @@ label {
 #comparisonDisplay {
     position: relative;
     height: 112px;
-    left: 380px;
+    left: 405px;
     bottom: 40px;
     width: 240px;
     font-size: 14px;
@@ -362,7 +362,7 @@ label {
     position: absolute;
     bottom: 22px;
     height: 78px;
-    width: 303px;
+    width: 340px;
     font-size: 11px;
     left: 54px;
 }
