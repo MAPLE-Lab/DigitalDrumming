@@ -71,7 +71,6 @@ function modifyDisplay(num, cND, cVol, cPitch, cCol, startCol, tMult, noteNum) {
 // Reset Drum Loop: Called when reset or data buttons are pushed //
 //////////////////////////////////////////////////////////////////
 function resetDrumLoop() {
-    resetCalled = true;
     $('#cycleDisplay').text('1');
     $('.datum').hide();
     counter = 0;

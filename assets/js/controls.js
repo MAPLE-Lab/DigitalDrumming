@@ -131,14 +131,14 @@ var menuControl = function() {
         if (drumData == expData) {
             drumData = theoData;
             dataType = "theoretical"
-            resetCalled = true;
             pause = true;
+            resetDrumLoop();
             $('#dataToggle').text("Theoretical");
         } else {
             drumData = expData;
             dataType = "experimental";
-            resetCalled = true;
             pause = true;
+            resetDrumLoop();
             $('#dataToggle').text("Actual");
         }
         $('#playButton').text("Play");
@@ -149,6 +149,7 @@ var menuControl = function() {
         $('.controls').removeClass('buttonClicked');
         $('#pauseBttn').addClass('buttonClicked');
         playing = "no";
+        resetCalled = true;
         resetDrumLoop();
         pause = true;
     });
