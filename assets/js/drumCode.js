@@ -85,6 +85,7 @@ function resetDrumLoop() {
 // Plot entire dataset, skipping playback //
 ///////////////////////////////////////////
 function plotAllData() {
+    $('.datum').hide();
     maxLoops = drumData.length;
     // Set Data Offset //
     if (dataType == "experimental")  {
@@ -158,8 +159,6 @@ function plotDatum(num, cCycle, cND, cPerf, dType, diff) {
 
         $('#' + datumID).click(function() {
             loadComparison(comparisonSlotNum,cCycle,(1 + notePos.indexOf(Number(cND))),cPerf,"datum" + cCycle + "_" + cND + "_" + cPerf);
-            comparisonSlotNum = 2;
-
             if ( $('#slot1').hasClass('activeSlot') ) {
                 $('.datum').removeClass('slotOneInd');
                 $(this).addClass('slotOneInd');
@@ -170,6 +169,7 @@ function plotDatum(num, cCycle, cND, cPerf, dType, diff) {
             }
             $('.mainslot').removeClass('activeSlot');
             $('#slot2').addClass('activeSlot');
+            comparisonSlotNum = 2;
         });
     }
 

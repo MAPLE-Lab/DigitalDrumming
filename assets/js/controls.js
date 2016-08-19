@@ -201,15 +201,15 @@ var menuControl = function() {
     $('#speed').val(timeMult);
 
     $('#slot1').click(function() {
-        $('.mainslot').removeClass('activeSlot');
-        $(this).addClass('activeSlot');
-        comparisonSlotNum = 2;
-    });
-
-    $('#slot2').click(function() {
-        $('.mainslot').removeClass('activeSlot');
-        $(this).addClass('activeSlot');
         comparisonSlotNum = 1;
+        $('.mainslot').removeClass('activeSlot');
+        $(this).addClass('activeSlot');
+    });
+    //
+    $('#slot2').click(function () {
+        comparisonSlotNum = 2;
+        $('.mainslot').removeClass('activeSlot');
+        $(this).addClass('activeSlot');
     });
 
 };
