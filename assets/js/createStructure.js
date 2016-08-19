@@ -126,12 +126,14 @@ $(document).ready(function() {
     // Create Comparison Viewer
     $('#comparisonDisplay').append(
         '<div id="slot1" class="mainslot activeSlot">' +
+        '   <div id="datumExample1" class="datumExample"></div>' +
         '   <label class="compLabel" for="DrummerNum_1">Drummer: </label><div id="DrummerNum_1" class="DrummerNum comparisonLabel"></div>' +
         '   <label class="compLabel"  for="CycleNum_1">Cycle: </label><div id="CycleNum_1" class="CycleNum comparisonLabel"></div>' +
         '   <label class="compLabel timeLabel"  for="DataNum_1">ms</label><div id="DataNum_1" class="DataNum comparisonLabel"></div>' +
         '   <label class="compLabel timeLabel"  for="DataBeat_1">beats</label><div id="DataBeat_1" class="DataBeat comparisonLabel"></div>' +
         '</div>' +
         '<div id="slot2" class="mainslot">' +
+        '   <div id="datumExample2" class="datumExample"></div>' +
         '   <label class="compLabel"  for="DrummerNum_2">Drummer: </label><div id="DrummerNum_2" class="DrummerNum comparisonLabel"></div>' +
         '   <label class="compLabel"  for="CycleNum_2">Cycle: </label><div id="CycleNum_2" class="CycleNum comparisonLabel"></div>' +
         '   <label class="compLabel timeLabel"  for="DataNum_2">ms</label><div id="DataNum_2" class="DataNum comparisonLabel"></div>' +
