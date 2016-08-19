@@ -139,7 +139,7 @@ var menuControl = function() {
             dataType = "experimental";
             resetCalled = true;
             pause = true;
-            $('#dataToggle').text("Experimental");
+            $('#dataToggle').text("Actual");
         }
         $('#playButton').text("Play");
     });

@@ -14,10 +14,10 @@ Styling for main layout and menu items
 #mainDisplay {
     width: 900px;
     height: 600px;
-    border: 1px solid #000;
-    border-radius: 15px;
+    border-radius: 20px;
     position: relative;
     z-index: 1;
+    box-shadow: 3px 3px 15px #000;
     background-color: #d3d3d3;
 }
 
@@ -54,35 +54,73 @@ Styling for main layout and menu items
     position: absolute;
     border: 1px solid #000;
 }
+.colorToggleDot {
+    top: 15px;
+}
 
 #menuBttnContainer {
-    width: 200px;
-    left: 112px;
+    width: 255px;
+    height: 35px;
+    left: 88px;
     bottom: 185px;
+    padding: 5px;
     position: relative;
+    background-color: gray;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 .bttn {
     width: 30px;
     height: 25px;
-    border: 1px solid #000;
+    padding:1px;
     position: relative;
     background-color: grey;
     cursor: pointer;
     text-align: center;
     vertical-align: middle;
-    line-height: 25px;
+    line-height: 35px;
     font-size: 14px;
     float: left;
     color: #000 !important;
     z-index: 10;
+    border: 1px solid black;
+}
+
+#mainButtons {
+    display: table;
+    table-layout: fixed;
+    position: relative;
+    width: 100px;
+    left: 7%;
+    float: left;
+    height: 100%;
+}
+#mainButtons div {
+    display:table-cell;
+    height:100%;
+    float:none;
+    background-color: lightgray;
+}
+
+#dataToggle {
+    width: 75px;
+    position: relative;
+    float: right;
+    padding: 0px;
+    background-color: lightgray;
+    border-radius: 5px;
+    height: 100%;
 }
 
 #resetBttn {
     border-radius: 5px;
-    left: -20px;
+    float: left;
     font-size: 12px;
     width: 40px;
+    height: 100%;
+    background-color: lightgray;
+    padding: 0px;
 }
 
 #revBttn {
@@ -110,30 +148,49 @@ Styling for main layout and menu items
     background-image: url('https://maplelab.net/tools/DigitalDrumming/Elements/playButton.png');
 }
 
-#dataToggle {
-    left: 139px;
-    width: 80px;
-    bottom: 185px;
-    position: relative;
-}
-
 #playButton {
     background-color: #00efff;
 }
 
 #plotAllBttn {
-    left: 533px;
-    bottom: 88px;
+    left: 825px;
+    bottom: 80px;
     border-radius: 5px;
     width: 40px;
+    position: absolute;
+    border: 0px;
+    line-height: 28px;
+    color: white !important;
 }
 
 
 #dataSelectContainer {
-    position: relative;
-    left: 515px;
-    bottom: 88px;
+    position: absolute;
+    left: 700px;
+    bottom: 80px;
     z-index: 5;
+    width: 102px;
+    background-color: gray;
+    height: 57px;
+    padding: 4px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+#dataSelectContainer div {
+    color:white;
+    line-height: 27px;
+}
+#D1Select {
+    color:white !important;
+    background-color:blue;
+}
+#D2Select {
+    color:white !important;
+    background-color:green;
+}
+#selectBoth {
+    background-color:lightgrey;
+    color: black !important;
 }
 
 .selectbttn {
@@ -157,7 +214,7 @@ Styling for main layout and menu items
 }
 #audioToggleContainer {
     position: relative;
-    bottom: 29px;
+    bottom: 24px;
 }
 
 #audioToggleLabel {
@@ -211,8 +268,8 @@ Styling for main layout and menu items
 
 #alignmentDisplay {
     position: relative;
-    bottom: 150px;
-    right: 165px;
+    bottom: 175px;
+    left: 190px;
 }
 
 #alignmentInput {
@@ -228,21 +285,25 @@ label {
 
 #comparisonDisplay {
     position: relative;
-    bottom: 121px;
-    height: 120px;
-    left: 125px;
-    width: 218px;
-    border: 1px solid black;
+    height: 112px;
+    left: 135px;
+    bottom: 165px;
+    width: 220px;
     font-size: 14px;
+    background-color: gray;
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    padding: 9px;
 }
 #slot1 {
     float:left;
-    width:50%;
+    width:35%;
+    margin-right:10px;
 }
 
 #slot2 {
     float:right;
-    width: 50%
+    width: 35%
 }
 
 #comparison {
@@ -256,4 +317,8 @@ label {
     clear: both;
     float: left;
     margin-right: 5px;
+}
+
+.timeLabel {
+    float:right;
 }

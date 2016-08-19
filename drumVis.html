@@ -53,7 +53,7 @@ This app builds itself automatically from javascript files
 
     <script src="./assets/Data/theoreticalData.js" type="text/javascript">
     </script>
-    <script src="./Data/experimentalData.js" type="text/javascript">
+    <script src="./assets/Data/experimentalData.js" type="text/javascript">
     </script>
     <script src="./assets/js/properties.js" type="text/javascript">
     </script>
@@ -103,20 +103,25 @@ This app builds itself automatically from javascript files
         <div class="bttn controls" id="resetBttn">
             RESET
         </div>
-        <div class="bttn controls" id="revBttn">
+        <div id="mainButtons">
+            <div class="bttn controls" id="revBttn">
 
+            </div>
+            <div class="bttn controls buttonClicked" id="pauseBttn">
+
+            </div>
+            <div class="bttn controls" id="playBttn">
+
+            </div>
         </div>
-        <div class="bttn controls buttonClicked" id="pauseBttn">
 
-        </div>
-        <div class="bttn controls" id="playBttn">
-
+        <div class="bttn" id="dataToggle">
+            Theoretical
         </div>
     </div>
-    <div class="bttn" id="dataToggle">
-        Theoretical
-    </div>
+
     <div id="dataSelectContainer">
+        <div id="legendTitle">Legend</div>
         <div class="bttn selectbttn" id="D1Select">
             D1
         </div>

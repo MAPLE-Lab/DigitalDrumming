@@ -248,6 +248,7 @@ function loadComparison (slotNum,cycle,note,performer,datumIDName) {
     $('#slot' + slotNum).children('.CycleNum').text(cycle);
     $('#slot' + slotNum).children('.DrummerNum').text(performer);
     $('#slot' + slotNum).children('.DataNum').text(convertToMs.toFixed(2));
+    $('#slot' + slotNum).children('.DataBeat').text(convertToBeat.toFixed(2));
 
     // Check difference if there is any
     checkDifference();
@@ -260,8 +261,11 @@ function loadComparison (slotNum,cycle,note,performer,datumIDName) {
 function checkDifference () {
     firstNum = $('#DataNum_1').text();
     secondNum = $('#DataNum_2').text();
+    firstBeats = $('#DataBeat_1').text();
+    secondBeats = $('#DataBeat_2').text();
     differenceNum = Math.abs(firstNum - secondNum);
-    $('#DifferenceNumber').text('Difference = ' + differenceNum.toFixed(2));
+    differenceBeats = Math.abs(firstBeats - secondBeats);
+    $('#DifferenceNumber').text('Difference = ' + differenceNum.toFixed(2) + 'ms (' + differenceBeats.toFixed(2) + ' beats)');
 }
 
 
