@@ -205,3 +205,11 @@ Styling for graph
 .currentYTickMajor {
     width: 9px;
 }
+
+.slotOneInd {
+    background-color:black;
+}
+
+.slotTwoInd {
+    background-color:red;
+}

@@ -200,15 +200,15 @@ var menuControl = function() {
     });
     $('#speed').val(timeMult);
 
-    $('#slot2Title').click(function() {
-        $('.slotTitles').css("text-shadow","transparent 0px 0px 0px");
-        $(this).css("text-shadow","red 0px 0px 1px");
+    $('#slot1').click(function() {
+        $('.mainslot').removeClass('activeSlot');
+        $(this).addClass('activeSlot');
         comparisonSlotNum = 2;
     });
 
-    $('#slot1Title').click(function() {
-        $('.slotTitles').css("text-shadow","transparent 0px 0px 0px");
-        $(this).css("text-shadow","red 0px 0px 1px");
+    $('#slot2').click(function() {
+        $('.mainslot').removeClass('activeSlot');
+        $(this).addClass('activeSlot');
         comparisonSlotNum = 1;
     });
 

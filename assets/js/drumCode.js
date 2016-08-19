@@ -124,6 +124,9 @@ function plotDatum(num, cCycle, cND, cPerf, dType, diff) {
     // Define current Datum id
     datumID = "datum" + cCycle + "_" + cND + "_" + cPerf;
 
+    // Convert note position to number
+    noteNumber = 1 + notePos.indexOf(Number(cND));
+
     // Set Data Offset //
     if (dType == "experimental")  {
         baseOffset = 19.6451613;
@@ -154,10 +157,19 @@ function plotDatum(num, cCycle, cND, cPerf, dType, diff) {
         });
 
         $('#' + datumID).click(function() {
-            loadComparison(comparisonSlotNum,cCycle,cND,cPerf,"datum" + cCycle + "_" + cND + "_" + cPerf);
+            loadComparison(comparisonSlotNum,cCycle,(1 + notePos.indexOf(Number(cND))),cPerf,"datum" + cCycle + "_" + cND + "_" + cPerf);
             comparisonSlotNum = 2;
-            $('.slotTitles').css("text-shadow","transparent 0px 0px 0px");
-            $('#slot2Title').css("text-shadow","red 0px 0px 1px");
+
+            if ( $('#slot1').hasClass('activeSlot') ) {
+                $('.datum').removeClass('slotOneInd');
+                $(this).addClass('slotOneInd');
+            }
+            if ( $('#slot2').hasClass('activeSlot') ) {
+                $('.datum').removeClass('slotTwoInd');
+                $(this).addClass('slotTwoInd');
+            }
+            $('.mainslot').removeClass('activeSlot');
+            $('#slot2').addClass('activeSlot');
         });
     }
 
@@ -167,7 +179,7 @@ function plotDatum(num, cCycle, cND, cPerf, dType, diff) {
 
     // Insert new data into folders
     $('#plot_' + datumID).text(diffT);
-    $('#' + datumID).children('.datumGraphFolder').html('Cycle: ' + cCycle +  '<br>Drummer: ' + num + '<br>Beat: ' + insertData.toFixed(2));
+    $('#' + datumID).children('.datumGraphFolder').html('Cycle: ' + cCycle+"-"+noteNumber +  '<br>Drummer: ' + num + '<br>Beat: ' + insertData.toFixed(2));
 
 
     // Position datum in new place
@@ -248,7 +260,7 @@ function loadComparison (slotNum,cycle,note,performer,datumIDName) {
     convertToBeat = (7*(((convertToMs) + beatDiff)/modScalingFactor)).mod(6);
 
     // Load info into slot
-    $('#slot' + slotNum).children('.CycleNum').text(cycle);
+    $('#slot' + slotNum).children('.CycleNum').text(cycle+"-"+note);
     $('#slot' + slotNum).children('.DrummerNum').text(performer);
     $('#slot' + slotNum).children('.DataNum').text(convertToMs.toFixed(2));
     $('#slot' + slotNum).children('.DataBeat').text(convertToBeat.toFixed(2));
