@@ -128,6 +128,7 @@ Styling for graph
     position: absolute;
     opacity: 1;
     z-index: 2;
+    cursor: pointer;
 }
 
 .datumD2 {
@@ -138,21 +139,7 @@ Styling for graph
     border: 1px solid blue;
 }
 
-.datumExample {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    position: relative;
-    float: right;
-    opacity: 1;
-    z-index: 20;
-}
-#datumExample1 {
-    background-color: black;
-}
-#datumExample2 {
-    background-color: red;
-}
+
 .datumBackground {
     opacity: 0.3;
     z-index: 1;

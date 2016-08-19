@@ -320,25 +320,42 @@ label {
 }
 #slot1 {
     float:left;
-    width:35%;
+    width:37%;
     margin-right:10px;
     height: 70px;
     border-radius: 10px;
     background-color: lightgray;
     padding: 5px;
     cursor: pointer;
+    position:relative;
 }
 
 #slot2 {
     float:right;
-    width: 35%;
+    width: 37%;
     height: 70px;
     border-radius: 10px;
     background-color: lightgray;
     padding: 5px;
     cursor: pointer;
+    position: relative;
 }
-
+.datumExample {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    float: right;
+    right: 5px;
+    opacity: 1;
+    z-index: 20;
+}
+#datumExample1 {
+    background-color: black;
+}
+#datumExample2 {
+    background-color: red;
+}
 #comparison {
     position:relative;
     float: left;
