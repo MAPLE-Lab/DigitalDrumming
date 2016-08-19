@@ -147,10 +147,10 @@ Styling for graph
 }
 
 .datumGraphFolder {
-    top: -3px;
+    top: 5px;
     height: 60px;
     width: 100px;
-    left: -150px;
+    right: 15px;
     opacity: 1;
     background-color: gray;
     box-shadow: 3px 3px 8px #000;
@@ -184,6 +184,7 @@ Styling for graph
     height: 20px;
     color: white;
     text-align: center;
+    line-height: 21px;
 }
 .tickTooltip:after {
     content: "";
