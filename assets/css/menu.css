@@ -121,6 +121,9 @@ Styling for main layout and menu items
     height: 100%;
     background-color: lightgray;
     padding: 0px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     background-image: url('https://maplelab.net/tools/DigitalDrumming/Elements/resetButton.png');
 }
 
