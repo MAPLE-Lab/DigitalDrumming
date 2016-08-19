@@ -19,6 +19,7 @@ Styling for main layout and menu items
     z-index: 1;
     box-shadow: 3px 3px 15px #000;
     background-color: #d3d3d3;
+    font-family: Arial !important;
 }
 
 #circleContainer {
