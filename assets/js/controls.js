@@ -217,3 +217,86 @@ var menuControl = function() {
 
 };
 $(document).ready(menuControl);
+
+//////////////
+// HOTKEYS //
+////////////
+window.onkeydown = function (e) {
+    return !(e.keyCode == 32);
+};
+//
+function validate(evt) {
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode(key);
+    var regex = /[0-9]|\./;
+    if (!regex.test(key)) {
+        theEvent.returnValue = false;
+        if (theEvent.preventDefault) theEvent.preventDefault();
+    }
+}
+$(document).ready(function() {
+    $(document).keydown(function (key) {
+        switch (parseInt(key.which, 10)) {
+            // Pressing space to play/pause
+            case 32:
+                if (pause == false) {
+                    $('.controls').removeClass('buttonClicked');
+                    $('#pauseBttn').addClass('buttonClicked');
+                    pause = true;
+                } else {
+                    $('.controls').removeClass('buttonClicked');
+                    $('#playBttn').addClass('buttonClicked');
+                    pause = false;
+                    resetCalled = false;
+                    runDrumLoop();
+                }
+                break;
+
+            // Pressing M to mute
+            case 77:
+                $('#audioToggle').trigger('click');
+                break;
+            // Pressing Shift to switch data
+            case 16:
+                $('#dataToggle').trigger('click');
+                break;
+            // Press G to toggle grid lines
+            case 71:
+                $('#gridToggle').trigger('click');
+                break
+            // Press C to toggle colors
+            case 67:
+                $('#colorToggle').trigger('click');
+                break;
+            // Press Control to switch active comparison slot
+            case 17:
+                if ( $('#slot1').hasClass('activeSlot') ) {
+                    $('#slot2').trigger('click');
+                } else if ( $('#slot2').hasClass('activeSlot') ) {
+                    $('#slot1').trigger('click');
+                }
+                break;
+            // Press P to Plot All
+            case 80:
+                $('#plotAllBttn').trigger('click');
+                break;
+
+            // Press R to reset
+            case 82:
+                $('#resetBttn').trigger('click');
+
+        }
+
+    });
+});
+
+// $('.controls').removeClass('buttonClicked');
+// $(this).addClass('buttonClicked');
+// direction = "fwd";
+// if (pause == false) {
+// } else if (pause == true) {
+//     pause = false;
+//     resetCalled = false;
+//     runDrumLoop();
+// }
