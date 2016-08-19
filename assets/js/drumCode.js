@@ -149,18 +149,20 @@ function plotDatum(num, cCycle, cND, cPerf, dType, diff) {
             '</div>');
 
         // Create FX
-        $('#' + datumID).hover(function() {
-            $(this).addClass("dataHover");
-            $('.datum').css("z-index","1");
-            $(this).css("z-index","2");
-            $('.datumGraphFolder').hide();
-            $(this).children('.datumGraphFolder').show();
-        }, function() {
-            $(this).removeClass("dataHover");
-            $('.datumGraphFolder').hide();
-            $(this).children('.datumGraphFolder').hide();
-        });
-
+        if ( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+        } else {
+            $('#' + datumID).hover(function () {
+                $(this).addClass("dataHover");
+                $('.datum').css("z-index", "1");
+                $(this).css("z-index", "2");
+                $('.datumGraphFolder').hide();
+                $(this).children('.datumGraphFolder').show();
+            }, function () {
+                $(this).removeClass("dataHover");
+                $('.datumGraphFolder').hide();
+                $(this).children('.datumGraphFolder').hide();
+            });
+        }
         $('#' + datumID).click(function() {
             loadComparison(comparisonSlotNum,cCycle,(1 + notePos.indexOf(Number(cND))),cPerf,"datum" + cCycle + "_" + cND + "_" + cPerf);
             if ( $('#slot1').hasClass('activeSlot') ) {

@@ -12,9 +12,12 @@
 // Coding for menu controls
 
 var menuControl = function() {
-    $('.bttn').hover(function() {
-        $(this).toggleClass('hovered');
-    });
+    if ( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+    } else {
+        $('.bttn').hover(function () {
+            $(this).toggleClass('hovered');
+        });
+    }
     $('#plotAllBttn').click(function() {
         $('.controls').removeClass('buttonClicked');
         $('#pauseBttn').addClass('buttonClicked');
@@ -193,9 +196,12 @@ var menuControl = function() {
     });
     $('#speed').val(timeMult);
 
-    $('.mainslot').hover(function() {
-        $(this).toggleClass('hovered');
-    });
+    if ( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+    } else {
+        $('.mainslot').hover(function () {
+            $(this).toggleClass('hovered');
+        });
+    }
 
     $('#slot1').click(function() {
         comparisonSlotNum = 1;
