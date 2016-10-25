@@ -1,0 +1,112 @@
+@media screen and (max-width: 550px) {
+    .inCircle {
+        width: 24px;
+        height: 24px;
+        left: calc(50% - 13px);
+    }
+
+    .inCircle.c1 {
+        transform-origin: 50% 446%;
+    }
+
+    .inCircle.c2 {
+        transform-origin: 50% 253%;
+    }
+
+    #circleD1 {
+        width: 200px;
+        height: 200px;
+    }
+
+    #circleD2 {
+        top: 100px;
+        left: 100px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .circleTick {
+        top: 24px;
+        left: 11px;
+    }
+    .tickD2 {
+        top: -12px;
+    }
+    .gridLine {
+        height: 50px;
+        left: 150px;
+        transform-origin: 60% 198%;
+        width: 1px;
+        background-color: #BBB;
+        transform-origin: 60% 198%;
+    }
+
+    #cycleDisplay {
+        position: absolute;
+        left: 144px;
+        top: 135px;
+    }
+
+    #menuBttnContainer {
+        width: 255px;
+        height: 35px;
+        left: 5%;
+        bottom: 168px;
+    }
+
+    #alignmentDisplay {
+        position: relative;
+        bottom: 156px;
+        left: 121px;
+    }
+
+    #sliderDisplay {
+        top: -76px;
+        left: 5px;
+        position: relative;
+    }
+
+    #speedSlider {
+        width: 12px;
+        bottom: 25px;
+    }
+
+    .ui-slider-vertical .ui-slider-handle {
+        width:22px;
+    }
+
+    #togglesContainer {
+        left: 36%;
+        top: -50px;
+    }
+
+    #Description {
+        position: absolute;
+        bottom: 27px;
+        height: 78px;
+        width: 217px;
+        font-size: 11px;
+        left: 54px;
+    }
+
+    .selfCredit {
+        left: 140px;
+        right: 0px;
+        bottom: 20px;
+    }
+
+    #mainDisplay {
+        width: 100%;
+        height: 530px;
+        left: 0px;
+        border-radius: 20px;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0px 0px 0px #000;
+    }
+
+    /*Elements to hide*/
+    #comparisonDisplay, #dataSelectContainer, #plotAllBttn, #graphDisplay {
+        display: none;
+    }
+}
