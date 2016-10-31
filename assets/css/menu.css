@@ -10,6 +10,18 @@ Git Repo: https://github.com/MAPLE-Lab/DigitalDrumming
 
 Styling for main layout and menu items
 */
+
+@-webkit-keyframes redPulse {
+  from { background-color: darkred; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: red; -webkit-box-shadow: 0 0 18px red; }
+  to { background-color: darkred; -webkit-box-shadow: 0 0 9px #333; }
+}
+.initialGlow {
+  -webkit-animation-name: redPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
 a, u {
     text-decoration: none;
 }

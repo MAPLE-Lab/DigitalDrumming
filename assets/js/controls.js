@@ -153,6 +153,7 @@ var menuControl = function() {
     });
 
     $('#playBttn').click(function() {
+        $('#playBttn').removeClass('initialGlow');
         $('.controls').removeClass('buttonClicked');
         $(this).addClass('buttonClicked');
         direction = "fwd";
