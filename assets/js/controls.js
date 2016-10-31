@@ -140,7 +140,7 @@ var menuControl = function() {
             dataType = "experimental";
             resetDrumLoop();
             pause = true;
-            $('#dataToggle').text("Actual");
+            $('#dataToggle').text("Observed");
         }
     });
 
